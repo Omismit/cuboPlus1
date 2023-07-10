@@ -1,0 +1,35 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button-container {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .button-container .col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-container button {
+    width: 100%;
+    height: 70px;
+    font-size: 24px;
+    border-radius: 0;
+  }
+
+  @media (max-width: 767px) {
+    .button-container .col-md-4 {
+      flex-basis: 33.33%;
+      max-width: 33.33%;
+    }
+  }
