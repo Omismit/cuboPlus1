@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <span class="navbar-text" style="color:white;padding-right:20px;">
+          <span class="navbar-text" id="user-name-bar" style="color:white;padding-right:20px;">
             Usuario
           </span>
         </li>
@@ -32,12 +32,12 @@
     <div class="row">
       <div class="col">
         <div class="d-flex align-items-center flex-column">
-            <img src="../img/ln.png" alt="Foto de usuario" class="user-photo">
-            <h2>Nombre de usuario 1</h2>
-            <p>@Usuario</p>
+            <img src="../img/ln.png" id="user-image" alt="Foto de usuario" class="user-photo">
+            <h2 id="user-name">Nombre de usuario 1</h2>
+            <p id="user">@Usuario</p>
             <div class="input-group input-group-lg d-flex justify-content-center">
                 <span class="input-group-text" id="balance1" style="font-size: 24px;">Balance : $</span>
-                <span class="input-group-text" id="balance2" style="font-size: 24px;">0.00</span>
+                <span class="input-group-text" id="sats" style="font-size: 24px;">0.00</span>
             </div>
         </div>
         <br>
