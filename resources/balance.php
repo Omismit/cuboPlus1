@@ -6,55 +6,7 @@
   <title>Easy Remittance</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
-  <style>
-    body{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .user-photo {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .circle-button {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      padding-top: 10px;
-    }
-
-    .circle-button img {
-      max-width: 30px;
-      max-height: 30px;
-    }
-
-    .center {
-      text-align: center;
-    }
-
-    .button-link {
-      display: inline-block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .custom-navbar {
-      background-color: #0788ff; /* Cambia el color aquí */
-    }
-
-    .custom-btn {
-      background-color: #9E4C00; /* Cambia el color aquí */
-    }
-
-  </style>
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
