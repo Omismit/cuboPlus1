@@ -27,9 +27,57 @@ html, body {
     border-radius: 0;
   }
 
-  @media (max-width: 767px) {
+
+  @media (max-width: 576px) {
+    /* Estilos para pantallas más pequeñas */
     .button-container .col-md-4 {
-      flex-basis: 33.33%;
-      max-width: 33.33%;
+      flex-basis: 60.00%;
+      max-width: 60.00%;
     }
+
+    .button-container button {
+      white-space: normal;
+      word-wrap: break-word;
+      font-size: 12px;
+    }
+
+    #sign1{
+      font-size: 12px;
+    }
+
+    #sign2{
+      font-size: 12px;
+    }
+  }
+
+  @media (min-width: 577px) and (max-width: 992px) {
+    /* Estilos para pantallas medianas */
+    .button-container .col-md-4 {
+      flex-basis: 60.00%;
+      max-width: 60.00%;
+    }
+
+    .button-container button {
+      white-space: normal;
+      word-wrap: break-word;
+      font-size: 12px;
+    }
+
+    #sign1{
+      font-size: 12px;
+    }
+
+    #sign2{
+      font-size: 12px;
+    }
+
+  }
+
+  @media (min-width: 993px) {
+    /* Estilos para pantallas grandes */
+  }
+
+
+  @media (max-width: 767px) {
+    
   }
