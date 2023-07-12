@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easy Remittance</title>
+  <script src="../qrcode.min.js" defer></script>
+  <script src="../js/code.js" defer> </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
   <style>
@@ -54,6 +56,11 @@
       background-color: #9E4C00; /* Cambia el color aquí */
     }
 
+    .card-text{
+      white-space: nowrap;
+      overflow:scroll;
+    }
+
   </style>
 </head>
 <body>
@@ -83,11 +90,12 @@
       <div class="col">
         <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
             <div class="card" style="width: 18rem;margin-right:16px;">
-                <img src="../img/qr.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
+                <!--img src="" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;" -->
+                <div id="qr" class="card-img-top"></div>
                 <div class="card-body">
                     <h5 class="card-title">Address</h5>
-                    <p class="card-text">08bc300a4dc1a40f3c5f668f807215a22fc1e7d85df9e91f7330bb3040246770</p>
-                    <a href="#" class="btn btn-primary">Copiar</a>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary" id="createQR">Copiar</a>
                 </div>
             </div>
        </div>

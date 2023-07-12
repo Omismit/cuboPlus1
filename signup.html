@@ -6,7 +6,24 @@
   <style>    
     @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
   </style>
-  <script src="js/signup.js"></script>
+  <script src="js/bd.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js" defer></script>
+  <script>
+    // just for the demos, avoids form submit
+    jQuery.validator.setDefaults({
+      debug: true,
+      success: "valid"
+    });
+    $( "#form1" ).validate({
+      rules: {
+        pass: "required",
+        pass2: {
+          equalTo: "#pass"
+        }
+      }
+    });
+    </script>
 </head>
 <body>
   <div class="container">
@@ -18,7 +35,7 @@
     <div class="right-section">
       <h2>Sign Up</h2>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
-      <form>
+      <form id="form1">
         <input type="text" placeholder="Enter your name" id="firstName">
         <input type="text" placeholder="Enter your last name" id="lastName">
         <input type="email" placeholder="Enter your email" id="email">
@@ -38,7 +55,7 @@
     </div>
   </div>
 
-  <script src="js/signup.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 </body>
 </html>
 
