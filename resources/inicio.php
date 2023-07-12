@@ -6,7 +6,7 @@
   <title>Easy Remittance</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
-  <link rel="stylesheet" href="../styles/styles.css">  
+  <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
@@ -34,14 +34,13 @@
     <div class="row">
       <div class="col">
         <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
-            <div class="card" style="width: 18rem;margin-right:16px;">
-                <img src="../img/qr.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
-                <div class="card-body">
-                    <h5 class="card-title">Address</h5>
-                    <p class="card-text">08bc300a4dc1a40f3c5f668f807215a22fc1e7d85df9e91f7330bb3040246770</p>
-                    <a href="#" class="btn btn-primary">Copiar</a>
-                </div>
-            </div>
+            
+
+
+                <img src="../img/fix.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
+  
+
+                
        </div>
       </div>
     </div>
