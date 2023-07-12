@@ -76,49 +76,27 @@
     </div>
   </nav>
 
-  <div class="container mt-5" >
+ 
+
+<div class="container mt-5" >
     <div class="row">
       <div class="col">
-        <div class="d-flex align-items-center flex-column">
-            <img src="../img/ln.png" alt="Foto de usuario" class="user-photo">
-            <h2>Nombre de usuario 1</h2>
-            <p>@Usuario</p>
-            <div class="input-group input-group-lg d-flex justify-content-center">
-                <span class="input-group-text" id="balance1" style="font-size: 24px;">Balance : $</span>
-                <span class="input-group-text" id="balance2" style="font-size: 24px;">0.00</span>
+        <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
+            <div class="card" style="width: 18rem;margin-right:16px;">
+                <img src="../img/qr.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
+                <div class="card-body">
+                    <h5 class="card-title">Address</h5>
+                    <p class="card-text">08bc300a4dc1a40f3c5f668f807215a22fc1e7d85df9e91f7330bb3040246770</p>
+                    <a href="#" class="btn btn-primary">Copiar</a>
+                </div>
             </div>
-        </div>
+       </div>
+      </div>
+    </div>
+</div>
         <br>
         <br>
         <br>
-        <div class="center">
-          <div class="d-flex justify-content-between">
-            <a href="inicio.html" class="button-link">
-              <div class="circle-button">
-                <img src="../img/inicio.png" alt="Inicio">
-                <p>Inicio</p>
-              </div>
-            </a>
-            <a href="depositar.html" class="button-link">
-              <div class="circle-button">
-                <img src="../img/depositar.png" alt="Depositar">
-                <p>Depositar</p>
-              </div>
-            </a>
-            <a href="enviar.html" class="button-link">
-              <div class="circle-button">
-                <img src="../img/enviar.png" alt="Enviar">
-                <p>Enviar</p>
-              </div>
-            </a>
-            <a href="recibir.html" class="button-link">
-              <div class="circle-button">
-                <img src="../img/recibir.png" alt="Recibir">
-                <p>Recibir</p>
-              </div>
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </div>
