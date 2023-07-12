@@ -66,6 +66,7 @@ body {
 }
 
 .btn {
+  margin-top: 20px;
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -78,6 +79,18 @@ body {
   box-sizing: border-box; /* Añadido */
 }
 
+.btm{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #116800;
+  border: none;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 15px;
+  cursor: pointer;
+  box-sizing: border-box; /* Añadido */
+}
 .login-link{
   font-size: 12px;
   margin-top: 25px;
