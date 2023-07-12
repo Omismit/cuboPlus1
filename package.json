@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Hackaton",
   "main": "bd.js",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
