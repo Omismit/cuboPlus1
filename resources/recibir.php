@@ -56,11 +56,6 @@
       background-color: #9E4C00; /* Cambia el color aquí */
     }
 
-    .card-text{
-      white-space: nowrap;
-      overflow:scroll;
-    }
-
   </style>
 </head>
 <body>
