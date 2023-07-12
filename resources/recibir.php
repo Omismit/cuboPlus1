@@ -77,7 +77,7 @@
           </span>
         </li>
         <li class="nav-item">
-          <button class="btn btn-danger custom-btn">Cerrar sesión</button>
+          <button class="btn btn-primary custom-btn">Cerrar sesión</button>
         </li>
       </ul>
     </div>
