@@ -1,6 +1,6 @@
-
+/*
 var pago = document.getElementById('sats')
-var desc = document.getElementById('desc')
+var desc = document.getElementById('desc')*/
 var enviar = document.getElementById('enviar')
 var createQR = document.getElementById('createQR')
 
@@ -43,8 +43,8 @@ async function enviarPago(){
       'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
     },
     body: JSON.stringify({
-      "amount": pago.value,
-      "description": desc.value,
+      "amount": "240000",
+      "description": "ahahhaah",
       "expiresIn": 300,
       "internalId": "11af01d0",
       "callbackUrl": "https://my-website.com/zbd-callback"

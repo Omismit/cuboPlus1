@@ -1,5 +1,6 @@
 const { error } = require('console');
 const mysql = require('../cuboPlus1/node_modules/mysql')
+const balance2 =  document.getElementById('balance2')
 
 // Configura los parámetros de conexión a la base de datos
 const connection = mysql.createConnection({
@@ -25,6 +26,8 @@ connection.query('select * from users',(err,rows)=>{
   console.log('los datos de la tabla')
   console.log(rows)
 })
+
+
 connection.end();
 
 
