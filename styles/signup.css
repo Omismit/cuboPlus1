@@ -56,12 +56,18 @@ h2 {
 
 h3 {
   margin-top: 0;
-  font-family: 'Courgette', cursive;
-  font-size: 24px;
+  font-family: 'Anton', regular;
+  font-size: 30px;
 }
 
 p {
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Courgette', cursive;
+}
+
+.left-section img{
+  width: 100px;
+  height: 100px;
 }
 
 form {
