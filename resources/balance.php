@@ -33,11 +33,11 @@
       <div class="col">
         <div class="d-flex align-items-center flex-column">
             <img src="../img/ln.png" id="user-image" alt="Foto de usuario" class="user-photo">
-            <h2 id="user-name">Nombre de usuario 1</h2>
-            <p id="user">@Usuario</p>
+            <h2 id="user-name">Rodrigo Aguilera</h2>
+            <p id="user">@TheBossUX-UI</p>
             <div class="input-group input-group-lg d-flex justify-content-center">
                 <span class="input-group-text" id="balance1" style="font-size: 24px;">Balance : $</span>
-                <span class="input-group-text" id="sats" style="font-size: 24px;">0.00</span>
+                <span class="input-group-text" id="sats" style="font-size: 24px;">1,000,000.00</span>
             </div>
         </div>
         <br>
@@ -45,25 +45,25 @@
         <br>
         <div class="center">
           <div class="d-flex justify-content-between">
-            <a href="inicio.html" class="button-link">
+            <a href="inicio.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/inicio.png" alt="Inicio">
                 <p>Inicio</p>
               </div>
             </a>
-            <a href="depositar.html" class="button-link">
+            <a href="depositar.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/depositar.png" alt="Depositar">
                 <p>Depositar</p>
               </div>
             </a>
-            <a href="enviar.html" class="button-link">
+            <a href="enviar.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/enviar.png" alt="Enviar">
                 <p>Enviar</p>
               </div>
             </a>
-            <a href="recibir.html" class="button-link">
+            <a href="recibir.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/recibir.png" alt="Recibir">
                 <p>Recibir</p>
