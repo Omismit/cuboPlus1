@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easy Remittance</title>
   <script src="../qrcode.min.js" defer></script>
-  <script src="../js/code.js" defer> </script>
+  <script src="../code.js" defer> </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
   <style>
@@ -54,6 +54,11 @@
 
     .custom-btn {
       background-color: #9E4C00; /* Cambia el color aquí */
+    }
+
+    .card-text{
+      overflow:scroll;
+      white-space:nowrap;
     }
 
   </style>
