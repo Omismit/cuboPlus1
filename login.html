@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - Mi Tienda</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Enlace a Font Awesome -->
+  <link rel="stylesheet" href="styles.css"> <!-- Archivo CSS para los estilos -->
+  <style>    
+  @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+  </style>
+  <link rel="icon" type="image/png" href="logo.png"> <!-- Icono de la tienda -->
+  <style>
+    .signup-link {
+      color: blue;
+      text-decoration: underline;
+      margin-top: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="container">
+      <h1 class="store-name">Easy Remittances</h1>
+      <img src="images/thunder.png" alt="Logo" class="logo">
+      <h2 class="title">Enter your credentials</h2>
+      <form class="login-form">
+        <input type="text" placeholder="User" class="input">
+        <div class="password-input">
+          <input type="password" placeholder="Password" class="input">
+          <div class="password-toggle">
+            <i class="fas fa-eye-slash"></i>
+          </div>
+        </div>
+        <button id="btn-acceder" type="button" class="btn" onclick="redirigir()">Log in</button>
+        <div class="login-link">
+          <label>Don't have an account?</label>
+          <a href="../Signup/index.html">Sign up</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script> <!-- Archivo JS para la funcionalidad del icono de ojo -->
+</body>
+</html>
