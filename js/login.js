@@ -27,3 +27,24 @@ const loginButton = document.getElementById('btn-acceder');
 function redirigir(){
     location.href="menu.html";
 }
+
+function login(){
+    var user = $("#user").val();
+    var pass = $("#password").val();
+    $.ajax({
+        method:"POST",
+        url:"resources/login.php",
+        dataType:"json",
+        data:{type:"1",val1:user,val2:pass},
+        success:function(data){
+            if(data['response']){
+                location.href="./resources/dashboard.php";
+            }else{
+                $("#alert1").show();
+            }
+        },
+        error:function(){
+            
+        }
+    });
+}

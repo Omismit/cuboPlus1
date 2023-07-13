@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['iduser'])) {
+    header('location: ../index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +28,7 @@
           </span>
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary custom-btn">Cerrar sesión</button>
+          <button class="btn btn-primary custom-btn" onclick="location.href = './logout.php';">Cerrar sesión</button>
         </li>
       </ul>
     </div>
