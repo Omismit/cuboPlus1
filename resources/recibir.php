@@ -36,10 +36,10 @@
 <div class="container mt-5" >
     <div class="row">
       <div class="col">
-        <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
-            <div class="card" style="width: 18rem;margin-right:16px;">
-                <!--img src="" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;" -->
-                <div id="qr" class="card-img-top"></div>
+        <div class="d-flex align-items-center flex-column" style="margin-top:72px;margin-right:5px;">
+            <div class="card custom-card" style="width: 19rem; border-width: 2px;border-color: black;">
+                
+                <div id="qr" class="card-img-top" style="margin-right:20px;margin-left:24px;margin-top:24px;"></div>
                 <div class="card-body">
                     <h5 class="card-title">Address</h5>
                     <p class="card-text"></p>
