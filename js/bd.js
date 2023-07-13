@@ -1,3 +1,5 @@
+const botonRegister = document.getElementById("register")
+const botonLogin = document.getElementById("btn-acceder")
 const mysql = require('mysql')
 
 
@@ -26,18 +28,29 @@ connection.query('select * from users',(err,rows)=>{
   console.log(rows)
 })
 
+function insertUsers() {
+  let nombre = document.getElementById("firstName").value;
+  let apellido = document.getElementById("lastName").value;
+  let correo = document.getElementById("email").value;
+  let password = document.getElementById("pass").value;
 
+  connection.query(`CALL insert_user('${nombre}','${apellido}','${correo}','${password}',@valido)`, (err, rows) => {
+    if (err) throw err;
+    console.log(rows);
+  });
+}
 
+botonRegister.addEventListener('click', insertUsers);
 
-     connection.query(`CALL insert_user('Mauricio','Roberto','MR@gmail.com','contra1',@valido)`,(err,rows)=>{
-      if(err) throw err
-      console.log('Insertation completa')
-      console.log(rows)
-    })
+function login(){
+  let user =  document.getElementById("user").value
+  let password = document.getElementById("password").value
 
-
-
-    
+  connection.query(`select * from users where email = ${user} and password = sha1(${password})`,(err,rows)=>{
+    if(err) throw err
+    console.log(rows)
+  })
+}
 
 
 connection.end();
