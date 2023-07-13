@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
   <link rel="stylesheet" href="../styles/styles.css">
- 
+  <script src="https://unpkg.com/htmx.org@1.9.2" integrity="sha384-L6OqL9pRWyyFU3+/bjdSri+iIphTN/bvYyM37tICVyOJkWZLpP2vGn6VUEXgzg6h" crossorigin="anonymous"></script>
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
@@ -39,7 +39,7 @@
         <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
             <div class="card" style="width: 18rem;margin-right:16px;">
                 <!--img src="" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;" -->
-                <div id="qr" class="card-img-top"></div>
+                <div id="qr" class="card-img-top" hx-trigger="every 2s"></div>
                 <div class="card-body">
                     <h5 class="card-title">Address</h5>
                     <p class="card-text"></p>
