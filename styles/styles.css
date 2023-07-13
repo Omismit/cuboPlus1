@@ -49,3 +49,7 @@
     overflow:scroll;
     white-space:nowrap;
   }
+
+  #saldo {
+    font-size: 20px;
+  }

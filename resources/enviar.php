@@ -29,25 +29,36 @@
   </nav>
 
  
+  <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="d-flex align-items-center flex-column" style="margin-top: 72px;">
+            <div class="text-center mt-5">
+              
+            <div class="input-group input-group-lg d-flex mb-0">
+                <span class="input-group-text" id="balance1" style="font-size: 18px;font-weight:bold;">Saldo disponible : $</span>
+                <span class="input-group-text" id="sats" style="font-size: 18px;font-weight:bold;">100.00</span>
+            </div>
 
-<div class="container mt-5" >
-    <div class="row">
-      <div class="col">
-        <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
-            
-
-
-                <img src="../img/fix.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
-  
-
-                
-       </div>
+            </div>
+            <div class="text-center mt-4">
+              <form id="saldoForm" action="balance.php" method="POST">
+                <div class="form-group">
+                  <input type="number" class="form-control form-control-lg" placeholder="Introduce una cantidad" id="cantidadEnviar">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control form-control-lg" placeholder="Search" id="searchEnviar">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-</div>
-        <br>
-        <br>
-        <br>
+      <br>
+      <br>
+      <br>
       </div>
     </div>
   </div>
