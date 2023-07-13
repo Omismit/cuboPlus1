@@ -5,7 +5,7 @@ var pago = document.getElementById('sats')
 var desc = document.getElementById('desc')*/
 var enviar = document.getElementById('enviar')
 var createQR = document.getElementById('createQR')
-
+var id;
 
 async function obtenerDatos(){
 await fetch('https://api.zebedee.io/v0/wallet', {
@@ -69,7 +69,7 @@ async function enviarPago(){
 
 //enviar.addEventListener('click', enviarPago);
 
-
+//POST
 var texto
 function mostrarQR(){
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
@@ -95,7 +95,7 @@ function mostrarQR(){
   })
   .then(data => {
     console.log(data);
-    
+    id = data.data.id
     bolt11 = data.data.invoice.fastRequest
     console.log(bolt11)
     bolt11.toString();
@@ -103,12 +103,47 @@ function mostrarQR(){
       text: bolt11
     });
     document.querySelector('.card-text').textContent = bolt11
+    
   })
   .catch(error => {
     console.error(error);
   });
 }
 
+//GET
+function quitarQR(id){
+  fetch(`https://api.zebedee.io/v0/withdrawal-requests/${id}`, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
+    }
+  
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error en la solicitud');
+    }
+  })
+  .then(data => {
+    
+    console.log(data); 
+
+    if(data.status == "completed"){
+      qr = document.getElementById("qr"),
+      qr.textContent = "SUCCESS"
+    }
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+mostrarQR()
+
+quitarQR(id)
 
 
 createQR.addEventListener('click',mostrarQR())
