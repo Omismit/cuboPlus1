@@ -9,8 +9,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (password !== confirmPassword) {
       passwordError.textContent = "Passwords do not match";
+    } else if (password === '' && confirmPassword === '') {
+      passwordError.textContent = "";
     } else {
       passwordError.textContent = "";
     }
   });
+
+  passwordInput.addEventListener('input', function() {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (password === '' && confirmPassword === '') {
+      passwordError.textContent = "";
+    }
+  });
+
+  confirmPasswordInput.addEventListener('input', function() {
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (password === '' && confirmPassword === '') {
+      passwordError.textContent = "";
+    }
+  });
 });
+
