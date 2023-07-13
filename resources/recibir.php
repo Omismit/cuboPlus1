@@ -8,64 +8,12 @@
   <script src="../code.js" defer> </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
-  <style>
-    body{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .user-photo {
-      width: 128px;
-      height: 128px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-
-    .circle-button {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      text-align: center;
-      padding-top: 10px;
-    }
-
-    .circle-button img {
-      max-width: 30px;
-      max-height: 30px;
-    }
-
-    .center {
-      text-align: center;
-    }
-
-    .button-link {
-      display: inline-block;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .custom-navbar {
-      background-color: #0788ff; /* Cambia el color aquí */
-    }
-
-    .custom-btn {
-      background-color: #9E4C00; /* Cambia el color aquí */
-    }
-
-    .card-text{
-      overflow:scroll;
-      white-space:nowrap;
-    }
-
-  </style>
+  <link rel="stylesheet" href="../styles/styles.css">
+ 
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
-    <a class="navbar-brand" href="#" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
+    <a class="navbar-brand" href="balance.php" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

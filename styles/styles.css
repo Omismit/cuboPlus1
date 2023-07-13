@@ -44,3 +44,8 @@
   .custom-btn {
     background-color: #4cc9c5; /* Cambia el color aquí   9E4C00  */
   }
+
+  .card-text{
+    overflow:scroll;
+    white-space:nowrap;
+  }
