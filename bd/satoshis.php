@@ -6,7 +6,7 @@ if (!isset($_SESSION['iduser'])) {
   exit();
 }
 
-$sql =  "SELECT satsBalance FROM balances WHERE idbalance = ".$_SESSION['iduser'];
+$sql =  "SELECT satsBalance FROM balances WHERE iduser = ".$_SESSION['iduser'];
 $result = mysqli_query($miconexion, $sql);
 
 if ($result) {
