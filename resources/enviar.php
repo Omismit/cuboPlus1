@@ -23,7 +23,10 @@
           </span>
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary custom-btn">Log out</button>
+
+
+          <button class="btn btn-primary custom-btn" onclick="location.href = './logout.php';">Cerrar sesión</button>
+
         </li>
       </ul>
     </div>
