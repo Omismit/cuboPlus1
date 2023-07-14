@@ -1,5 +1,6 @@
 
 
+
 /*
 var pago = document.getElementById('sats')
 var desc = document.getElementById('desc')*/
@@ -172,6 +173,15 @@ function quitarQR() {
     if (data.data.status == "completed") {
       var qr = document.getElementById("qr");
       qr.style.visibility = 'hidden' ;
+      fetch("../bd/withdraw.php",{
+        headers:{
+          "Content-type":"application/json"
+        }
+      }).then(response =>{
+          console.log("Conexion exitosa")
+          return response.json();
+      })
+      
     }
   })
   .catch(error => {
@@ -186,10 +196,15 @@ fetch('../bd/satoshis.php', {
   headers: {
     "Content-Type": "application/json"
   }
-})
-  .then(response => {
+}).then(response => {
+    if(response.ok ){
     console.log("Conexión exitosa"); // Mensaje de éxito de conexión
     return response.json();
+    }else{
+      console.log("Error en la conexion el proceso")
+    }
+  }).catch(error =>{
+    console.error('Error en la solicitud:', error);
   })
   .then(data => {
     console.log("Respuesta del servidor:", data); // Imprimir la respuesta JSON del servidor
