@@ -61,7 +61,7 @@ if (!isset($_SESSION['iduser'])) {
             <a href="inicio.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/inicio.png" alt="Inicio">
-                <p>Transaction history</p>
+                <p>Transactions</p>
               </div>
             </a>
             <a href="depositar.php" class="button-link">
