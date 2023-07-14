@@ -50,7 +50,7 @@ if (!isset($_SESSION['iduser'])) {
             
             <div class="input-group input-group-lg d-flex mb-0">
                 <span class="input-group-text" id="balance1" style="font-size: 18px;font-weight:bold;">Available balance : $</span>
-                <span class="input-group-text" id="sats" style="font-size: 18px;font-weight:bold;">100.00</span>
+                <span class="input-group-text" id="sats" style="font-size: 18px;font-weight:bold;width:100px;">100.00</span>
             </div>
             
             </div>
@@ -58,9 +58,9 @@ if (!isset($_SESSION['iduser'])) {
               <form id="saldoForm" action="balance.php" method="POST">
                 <div class="form-group">
                   <input type="number" class="form-control form-control-lg" placeholder="Enter an amount" id="cantidadEnviar">
-                </div>
+                </div> 
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly>
+                  <!-- <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly> -->
                 
                   <select class="js-example-basic-single" name="users" style="width: 300px;">
                     <option value="1">Edgar</option>
@@ -69,8 +69,7 @@ if (!isset($_SESSION['iduser'])) {
                   </select>
 
                 </div>
-                <button class="btn btn-primary" id="searchBtn">Search</button>
-                <br>
+                <!-- <button class="btn btn-primary" id="searchBtn">Search</button> -->
                 <br>
                 <button type="submit" class="btn btn-primary btn-block" id="sendBtn">Send remittance</button>
               </form>
@@ -87,7 +86,7 @@ if (!isset($_SESSION['iduser'])) {
       </div>
     </div>
   </div>
-  <!-- Ventana modal -->
+  <!-- Ventana modal
   <div class="modal fade" id="userModal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -111,22 +110,42 @@ if (!isset($_SESSION['iduser'])) {
           </div>
         </div>
       </div>
-      <!-- Ventana modal -->
+       Ventana modal -->
 
       <!-- Modal de confirmación -->
       <div class="modal fade" id="confirmModal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Confirmar envío</h5>
+              <h5 class="modal-title">Confirm data</h5>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <p id="confirmationMessage"></p>
+
+              <p id="confirmationMessageUSD" style="font-weight: bold;"></p>
+              <p id="details">Transaction details</p>
+              <table class="table table-borderless">
+                    <tr>
+                      <th scope="row"></th>
+                      <td>Sats</td>
+                      <td><p id="confirmationMessageSATS"></p></td> 
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td>Fee 3%</td>
+                      <td><p id="confirmationMessageFee"></p></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td>Total</td>
+                      <td><p id="confirmationMessageTotal" style="font-weight: bold;"></p></td>
+                    </tr>
+              </table>
+
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-primary" id="confirmYes">Sí</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button type="button" class="btn btn-success" id="confirmYes">Sí</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
         </div>
@@ -136,7 +155,7 @@ if (!isset($_SESSION['iduser'])) {
   
   
   <script>
-     $(document).ready(function() {
+    /*$(document).ready(function() {
     $('#searchBtn').click(function(e) {
       e.preventDefault(); // Evita el comportamiento predeterminado del botón
       $('#userModal').modal('show');
@@ -152,14 +171,24 @@ if (!isset($_SESSION['iduser'])) {
       // Asignar valor de userName al input text de username
       $('#usernameInput').val(userName);
     });
-  });
+  });*/
 
   $(document).ready(function() {  
     $('#sendBtn').click(function(e) {
       e.preventDefault(); 
       $('#confirmModal').modal('show');
-        var cantidad = $('#cantidadEnviar').val();
-        $('#confirmationMessage').text("¿Are you sure you want to send  $" + cantidad + " Sats ?");
+
+        //variables para imprimir el modal de confirmacion
+        var cantidad = $('#cantidadEnviar').val(); //USD
+        var sats = 15;
+        var fee = 3;
+        var total = sats - fee;
+
+        //mensajes de impresion en modal
+        $('#confirmationMessageUSD').text("¿Are you sure you want to send  $" + cantidad + " Dollars ?");
+        $('#confirmationMessageSATS').text(sats);
+        $('#confirmationMessageFee').text(fee);
+        $('#confirmationMessageTotal').text(total);
       });
 
       $('#confirmYes').click(function() {
