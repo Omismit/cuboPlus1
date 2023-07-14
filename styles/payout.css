@@ -23,12 +23,30 @@ body {
   
   #body {
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
   
   #title {
     font-size: 24px;
     margin-bottom: 10px;
     text-align: center;
+  }
+  
+  #payment-method {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .input-section {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .input-section h3 {
+    margin-bottom: 10px;
   }
   
   .input-group {
@@ -65,18 +83,8 @@ body {
     border-color: #555;
   }
   
-  .input-group.inline-inputs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .input-group.inline-inputs .input-wrapper {
-    width: calc(50% - 10px);
-  }
-  
   #body > .input-group {
-    margin-top: 30px;
+    margin-top: 20px;
   }
   
   .input-group .input-placeholder {
