@@ -43,7 +43,7 @@ const loginButton = document.getElementById('btn-acceder');
 
 // Función para redirigir a la página del menú principal
 function redirigir() {
-    location.href = "index.html";
+    location.href = "signup.html";
 }
 
 function login() {
