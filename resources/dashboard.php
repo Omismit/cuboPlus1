@@ -1,5 +1,6 @@
 <?php
 session_start();
+//require('../bd/signup.php');
 if (!isset($_SESSION['iduser'])) {
     header('location: ../index.html');
 }
@@ -24,7 +25,9 @@ if (!isset($_SESSION['iduser'])) {
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" id="user-name-bar" style="color:#e6e6e6;padding-right:20px;">
-          <?php echo $_SESSION['user']; ?>
+          <?php 
+          
+          echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
@@ -39,15 +42,15 @@ if (!isset($_SESSION['iduser'])) {
       <div class="col">
         <div class="d-flex align-items-center flex-column">
             <img src="../img/ln.png" id="user-image" alt="Foto de usuario" class="user-photo">
-            <h2 id="user-name"><?php echo $_SESSION['name']." ".$_SESSION['lastname']; ?></h2>
-            <p id="user"><?php echo $_SESSION['user']; ?></p>
-            <div class="input-group input-group-lg d-flex justify-content-center">
-                <span class="input-group-text" id="balance1" style="font-size: 24px;">USD : </span>
-                <span class="input-group-text" id="usd" style="font-size: 24px;">1,000,000.00</span>
+            <h2 id="user-name"><?php echo $_SESSION['name']." ".$_SESSION['lastname']?></h2>
+            <p id="user"><?php echo $_SESSION['user']?></p>
+            <div class="input-group input-group-lg d-flex justify-content-center" style="width: 250px;">
+                <span class="input-group-text" id="balance1" style="font-size: 24px;width: 80px;">USD : </span>
+                <span class="input-group-text" id="usd" style="font-size: 24px;width:170px;">1,000,000.00</span>
             </div>
             <div class="input-group input-group-lg d-flex justify-content-center">
-                <span class="input-group-text" id="balance1" style="font-size: 24px;">Sats : </span>
-                <span class="input-group-text" id="sats" style="font-size: 24px;">1,000,000.00</span>
+                <span class="input-group-text" id="balance1" style="font-size: 24px;width: 80px;">Sats : </span>
+                <span class="input-group-text" id="sats" style="font-size: 24px;width:170px;">1,000,000.00</span>
             </div>
         </div>
         <br>
