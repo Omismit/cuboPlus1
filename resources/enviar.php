@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['iduser'])) {
+    header('location: ../index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,7 +24,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" style="color:white;padding-right:20px;">
-            Usuario
+            <?php echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
@@ -63,8 +69,9 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="../js/send.js"></script>
 </body>
 </html>
