@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['iduser'])) {
+    header('location: ../index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -21,11 +27,11 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" style="color:white;padding-right:20px;">
-            Usuario
+          <?php echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary custom-btn">Cerrar sesión</button>
+          <button class="btn btn-primary custom-btn" onclick="location.href = './logout.php';">Cerrar sesión</button>
         </li>
       </ul>
     </div>
@@ -36,10 +42,10 @@
 <div class="container mt-5" >
     <div class="row">
       <div class="col">
-        <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
-            <div class="card" style="width: 18rem;margin-right:16px;">
-                <!--img src="" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;" -->
-                <div id="qr" class="card-img-top"></div>
+        <div class="d-flex align-items-center flex-column" style="margin-top:72px;margin-right:5px;">
+            <div class="card custom-card" style="width: 19rem; border-width: 2px;border-color: black;">
+                <!--div class="suc">Transaction completed</div-->
+                <div id="qr" class="card-img-top" style="margin-right:20px;margin-left:24px;margin-top:24px;"></div>
                 <div class="card-body">
                     <h5 class="card-title">Address</h5>
                     <p class="card-text"></p>

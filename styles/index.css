@@ -96,3 +96,6 @@ body {
   font-size: 12px;
   margin-top: 25px;
 }
+.hidden{
+    display: none;
+}

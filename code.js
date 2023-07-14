@@ -1,10 +1,11 @@
 
+
 /*
 var pago = document.getElementById('sats')
 var desc = document.getElementById('desc')*/
 var enviar = document.getElementById('enviar')
 var createQR = document.getElementById('createQR')
-
+var id;
 
 async function obtenerDatos(){
 await fetch('https://api.zebedee.io/v0/wallet', {
@@ -67,8 +68,8 @@ async function enviarPago(){
 }
 
 //enviar.addEventListener('click', enviarPago);
-
-
+/*
+//POST
 var texto
 function mostrarQR(){
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
@@ -94,7 +95,8 @@ function mostrarQR(){
   })
   .then(data => {
     console.log(data);
-    
+    id = data.data.id
+    quitarQR(id)
     bolt11 = data.data.invoice.fastRequest
     console.log(bolt11)
     bolt11.toString();
@@ -102,6 +104,38 @@ function mostrarQR(){
       text: bolt11
     });
     document.querySelector('.card-text').textContent = bolt11
+    
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+//GET
+function quitarQR(id){
+  fetch(`https://api.zebedee.io/v0/withdrawal-requests/${id}`, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
+    }
+  
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error en la solicitud');
+    }
+  })
+  .then(data => {
+    
+    console.log(data); 
+  
+    if(data.status == "completed"){
+      qr = document.getElementById("qr"),
+     
+    }
   })
   .catch(error => {
     console.error(error);
@@ -110,4 +144,83 @@ function mostrarQR(){
 
 
 
-createQR.addEventListener('click',mostrarQR())
+setInterval(quitarQR, 3000)
+
+mostrarQR()*/
+
+//GET
+function quitarQR() {
+  fetch(`https://api.zebedee.io/v0/withdrawal-requests/${id}`, {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error en la solicitud');
+    }
+  })
+  .then(data => {
+    console.log(data); 
+
+    if (data.data.status == "completed") {
+      var qr = document.getElementById("qr");
+      qr.style.visibility = 'hidden' ;
+    }
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+function mostrarQR() {
+  fetch('https://api.zebedee.io/v0/withdrawal-requests', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
+    },
+    body: JSON.stringify({
+      "amount": "15000",
+      "description": "Withdraw QR!",
+      "expiresIn": 300,
+      "internalId": "1c3b1-f61j2",
+      "callbackUrl": "https://your-website.com/zbd-callback"
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Error en la solicitud');
+    }
+  })
+  .then(data => {
+    console.log(data);
+    id = data.data.id;
+    bolt11 = data.data.invoice.fastRequest
+    console.log(bolt11)
+    bolt11.toString();
+    const qrCode = new QRCode(document.getElementById("qr"), {
+      text: bolt11
+    });
+    document.querySelector('.card-text').textContent = bolt11
+    setInterval(quitarQR, 2000); // Llamar a quitarQR cada 3 segundos
+    // Resto del código
+  })
+  .catch(error => {
+    console.error(error);
+  });
+}
+
+mostrarQR();
+
+
+
+
+
+

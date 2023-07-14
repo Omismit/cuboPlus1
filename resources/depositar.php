@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['iduser'])) {
+    header('location: ../index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +16,7 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
-    <a class="navbar-brand" href="balance.php" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
+    <a class="navbar-brand" href="dashboard.php" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -18,11 +24,11 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" style="color:white;padding-right:20px;">
-            Usuario
+          <?php echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
-          <button class="btn btn-primary custom-btn">Cerrar sesión</button>
+          <button class="btn btn-primary custom-btn" onclick="location.href = './logout.php';">Cerrar sesión</button>
         </li>
       </ul>
     </div>
