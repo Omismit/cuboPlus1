@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['iduser'])) {
+    header('location: ../index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easy Remittance</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
   <link rel="stylesheet" href="../styles/styles.css">
@@ -19,7 +28,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" style="color:white;padding-right:20px;">
-            User
+            <?php echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
@@ -33,8 +42,6 @@
   </nav>
 
   <div class="container mt-5">
-      
-
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <div class="d-flex align-items-center flex-column" style="margin-top: 72px;">
@@ -54,11 +61,18 @@
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly>
+                
+                  <select class="js-example-basic-single" name="users" style="width: 300px;">
+                    <option value="1">Edgar</option>
+                    <option value="2">Rodrigo</option>
+                    <option value="3">Oswaldo</option>
+                  </select>
+
                 </div>
                 <button class="btn btn-primary" id="searchBtn">Search</button>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary btn-block">Send remittance</button>
+                <button type="submit" class="btn btn-primary btn-block" id="sendBtn">Send remittance</button>
               </form>
             </div>
           </div>
@@ -73,7 +87,6 @@
       </div>
     </div>
   </div>
-
   <!-- Ventana modal -->
   <div class="modal fade" id="userModal">
         <div class="modal-dialog">
@@ -100,6 +113,26 @@
       </div>
       <!-- Ventana modal -->
 
+      <!-- Modal de confirmación -->
+      <div class="modal fade" id="confirmModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmar envío</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p id="confirmationMessage"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="confirmYes">Sí</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal de confirmación -->
+
   
   
   <script>
@@ -120,11 +153,30 @@
       $('#usernameInput').val(userName);
     });
   });
+
+  $(document).ready(function() {  
+    $('#sendBtn').click(function(e) {
+      e.preventDefault(); 
+      $('#confirmModal').modal('show');
+        var cantidad = $('#cantidadEnviar').val();
+        $('#confirmationMessage').text("¿Are you sure you want to send  $" + cantidad + " Sats ?");
+      });
+
+      $('#confirmYes').click(function() {
+        window.location.href = "dashboard.php";
+      });
+  });
+
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
+  });
   </script>
 
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="../js/send.js"></script>
 </body>
 </html>
