@@ -1,7 +1,7 @@
 <?php
 session_start();
 require('conexion.php');
-
+extract($_REQUEST);
 $nombre = $_POST["firstName"];
 $apellido = $_POST["lastName"];
 $email = $_POST["email"];
