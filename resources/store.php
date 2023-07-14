@@ -34,17 +34,36 @@ switch ($case) {
         $query->execute(array($_SESSION['iduser']));
         $senderD = $query->fetch(PDO::FETCH_ASSOC);
         $balance = $senderD['fiatBalance'];
+        if ($amount <= 0) {
+            echo json_encode(array("response" => $reponse, "msg" => "The quantity have to be more than zero."));
+            break;
+        }
         if (($balance - $amount) < 0) {///not enough USD
             echo json_encode(array("response" => $reponse, "msg" => "Your assets are not enough for the send."));
             break;
         }
         $query2 = $conexion->query($sql2);
         $count = $query2->fetchColumn();
-        if(''){}
+        if ($count == 0) {
+            echo json_encode(array("response" => $reponse, "msg" => "The user selected not exist."));
+            break;
+        }
+        $newB = number_format(($balance - $amount), 2);
+        $milisats = $amount * 1000;
+        $fee = (($satsAmount * 0.03)) / 1000;
+        $total = (($satsAmount - $fee) / 1000);
+        echo json_encode(array("response" => TRUE, "data" => array("amount" => $amount,
+                "sats" => ($milisats / 1000), "fee" => $fee, "total" => $total)));
         break;
     case 3://sending funds
+
         break;
-    case 4:///
+    case 4:///get info of other users
+        $sql = "select iduser, name, lastname, email from users where iduser!=?;";
+        $query = $conexion->prepare($sql);
+        $query->execute(array($_SESSION['iduser']));
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode(array("response" => TRUE, "data" => $result));
         break;
     default:
         break;
