@@ -59,9 +59,10 @@
     border-width: 8px;
   }
 
-  #sucess{
+ /* .suc{
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: red;
-  }
+    color: azure;
+    font-size: 36px;
+    visibility: hidden;
+  }*/
+  

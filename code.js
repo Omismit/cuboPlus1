@@ -134,7 +134,7 @@ function quitarQR(id){
   
     if(data.status == "completed"){
       qr = document.getElementById("qr"),
-      qr.textContent = "SUCCESS"
+     
     }
   })
   .catch(error => {
