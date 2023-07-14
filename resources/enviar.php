@@ -11,6 +11,9 @@ if (!isset($_SESSION['iduser'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Easy Remittance</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
         <link rel="stylesheet" href="../styles/styles.css">
@@ -47,7 +50,7 @@ if (!isset($_SESSION['iduser'])) {
 
                             <div class="input-group input-group-lg d-flex mb-0">
                                 <span class="input-group-text" id="balance1" style="font-size: 18px;font-weight:bold;">Available balance : $</span>
-                                <span class="input-group-text" id="sats" style="font-size: 18px;font-weight:bold;">---</span>
+                                <span class="input-group-text" id="sats" style="font-size: 18px;font-weight:bold;">100.00</span>
                             </div>
 
                         </div>
@@ -58,11 +61,18 @@ if (!isset($_SESSION['iduser'])) {
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly>
+
+                                    <select class="js-example-basic-single" name="users" style="width: 300px;">
+                                        <option value="1">Edgar</option>
+                                        <option value="2">Rodrigo</option>
+                                        <option value="3">Oswaldo</option>
+                                    </select>
+
                                 </div>
                                 <button class="btn btn-primary" id="searchBtn">Search</button>
                                 <br>
                                 <br>
-                                <button type="submit" class="btn btn-primary btn-block">Send remittance</button>
+                                <button type="submit" class="btn btn-primary btn-block" id="sendBtn">Send remittance</button>
                             </form>
                         </div>
                     </div>
@@ -103,10 +113,31 @@ if (!isset($_SESSION['iduser'])) {
 </div>
 <!-- Ventana modal -->
 
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar envío</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="confirmationMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="confirmYes">Sí</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal de confirmación -->
+
 
 
 <script>
     $(document).ready(function () {
+        loading_balance()
         $('#searchBtn').click(function (e) {
             e.preventDefault(); // Evita el comportamiento predeterminado del botón
             $('#userModal').modal('show');
@@ -122,11 +153,26 @@ if (!isset($_SESSION['iduser'])) {
             // Asignar valor de userName al input text de username
             $('#usernameInput').val(userName);
         });
-        loading_balance();
+
+        $('#sendBtn').click(function (e) {
+            e.preventDefault();
+            $('#confirmModal').modal('show');
+            var cantidad = $('#cantidadEnviar').val();
+            $('#confirmationMessage').text("¿Are you sure you want to send  $" + cantidad + " Sats ?");
+        });
+
+        $('#confirmYes').click(function () {
+            window.location.href = "dashboard.php";
+        });
+
+        $('.js-example-basic-single').select2();
     });
 </script>
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="../js/send.js"></script>
 </body>

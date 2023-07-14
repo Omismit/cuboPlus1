@@ -24,7 +24,7 @@ if (!isset($_SESSION['iduser'])) {
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" id="user-name-bar" style="color:#e6e6e6;padding-right:20px;">
-            Usuario
+          <?php echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
