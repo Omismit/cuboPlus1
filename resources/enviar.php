@@ -54,6 +54,7 @@
                 </div>
                 <div class="form-group">
                   <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly>
+                
                 </div>
                 <button class="btn btn-primary" id="searchBtn">Search</button>
                 <br>
@@ -100,6 +101,26 @@
       </div>
       <!-- Ventana modal -->
 
+      <!-- Modal de confirmación -->
+      <div class="modal fade" id="confirmModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Confirmar envío</h5>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <p id="confirmationMessage"></p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" id="confirmYes">Sí</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal de confirmación -->
+
   
   
   <script>
@@ -119,6 +140,23 @@
       // Asignar valor de userName al input text de username
       $('#usernameInput').val(userName);
     });
+  });
+
+  $(document).ready(function() {  
+    $('#sendBtn').click(function(e) {
+      e.preventDefault(); 
+      $('#confirmModal').modal('show');
+        var cantidad = $('#cantidadEnviar').val();
+        $('#confirmationMessage').text("¿Are you sure you want to send  $" + cantidad + " Sats ?");
+      });
+
+      $('#confirmYes').click(function() {
+        window.location.href = "balance.php";
+      });
+  });
+
+    $(document).ready(function() {
+      $('.js-example-basic-single').select2();
   });
   </script>
 
