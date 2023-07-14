@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easy Remittance</title>
+  <script src="../qrcode.min.js" defer></script>
+  <script src="../code.js" defer> </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
-  <link rel="stylesheet" href="../styles/styles.css">  
+  <link rel="stylesheet" href="../styles/styles.css">
+ 
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
-    <a class="navbar-brand" href="#" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
+    <a class="navbar-brand" href="balance.php" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,7 +25,7 @@
           </span>
         </li>
         <li class="nav-item">
-          <button class="btn btn-danger custom-btn">Cerrar sesión</button>
+          <button class="btn btn-primary custom-btn">Cerrar sesión</button>
         </li>
       </ul>
     </div>
@@ -35,11 +38,12 @@
       <div class="col">
         <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
             <div class="card" style="width: 18rem;margin-right:16px;">
-                <img src="../img/qr.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
+                <!--img src="" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;" -->
+                <div id="qr" class="card-img-top"></div>
                 <div class="card-body">
                     <h5 class="card-title">Address</h5>
-                    <p class="card-text">08bc300a4dc1a40f3c5f668f807215a22fc1e7d85df9e91f7330bb3040246770</p>
-                    <a href="#" class="btn btn-primary">Copiar</a>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn btn-primary" id="createQR">Copiar</a>
                 </div>
             </div>
        </div>

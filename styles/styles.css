@@ -1,83 +1,55 @@
-html, body {
-    height: 100%;
-  }
-  
-  body {
+  body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100vh;
   }
-  
-  .button-container {
+
+  .user-photo {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
   }
 
-  .button-container .col-md-4 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .circle-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    padding-top: 10px;
   }
 
-  .button-container button {
-    width: 100%;
-    height: 70px;
-    font-size: 24px;
-    border-radius: 0;
+  .circle-button img {
+    max-width: 30px;
+    max-height: 30px;
   }
 
-
-  @media (max-width: 576px) {
-    /* Estilos para pantallas más pequeñas */
-    .button-container .col-md-4 {
-      flex-basis: 60.00%;
-      max-width: 60.00%;
-    }
-
-    .button-container button {
-      white-space: normal;
-      word-wrap: break-word;
-      font-size: 12px;
-    }
-
-    #sign1{
-      font-size: 12px;
-    }
-
-    #sign2{
-      font-size: 12px;
-    }
+  .center {
+    text-align: center;
   }
 
-  @media (min-width: 577px) and (max-width: 992px) {
-    /* Estilos para pantallas medianas */
-    .button-container .col-md-4 {
-      flex-basis: 60.00%;
-      max-width: 60.00%;
-    }
-
-    .button-container button {
-      white-space: normal;
-      word-wrap: break-word;
-      font-size: 12px;
-    }
-
-    #sign1{
-      font-size: 12px;
-    }
-
-    #sign2{
-      font-size: 12px;
-    }
-
+  .button-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
   }
 
-  @media (min-width: 993px) {
-    /* Estilos para pantallas grandes */
+  .custom-navbar {
+    background-color: #2f3240; /* Cambia el color aquí #0788ff; */
   }
 
+  .custom-btn {
+    background-color: #4cc9c5; /* Cambia el color aquí   9E4C00  */
+  }
 
-  @media (max-width: 767px) {
-    
+  .card-text{
+    overflow:scroll;
+    white-space:nowrap;
+  }
+
+  #saldo {
+    font-size: 20px;
   }

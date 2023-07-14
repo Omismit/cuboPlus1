@@ -25,5 +25,5 @@ const loginButton = document.getElementById('btn-acceder');
 
 // Función para redirigir a la página del menú principal
 function redirigir(){
-    location.href="signup.html";
+    location.href="menu.html";
 }
