@@ -19,7 +19,7 @@ if (!isset($_SESSION['iduser'])) {
 </head>
 <body>
   <nav class="navbar navbar-expand-md navbar-light fixed-top custom-navbar">
-    <a class="navbar-brand" href="dashboard.php" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
+    <a class="navbar-brand" href="balance.php" style="color:white;"><img src="../img/ln.png" alt="Logo" style="width: 48px;height: 48px;margin-right:10px;">Easy Remittance</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['iduser'])) {
       <div class="col">
         <div class="d-flex align-items-center flex-column" style="margin-top:72px;margin-right:5px;">
             <div class="card custom-card" style="width: 19rem; border-width: 2px;border-color: black;">
-                
+                <!--div class="suc">Transaction completed</div-->
                 <div id="qr" class="card-img-top" style="margin-right:20px;margin-left:24px;margin-top:24px;"></div>
                 <div class="card-body">
                     <h5 class="card-title">Address</h5>
