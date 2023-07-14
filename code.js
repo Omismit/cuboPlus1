@@ -169,7 +169,7 @@ function quitarQR() {
 
     if (data.data.status == "completed") {
       var qr = document.getElementById("qr");
-      qr.textContent = "SUCCESS";
+      qr.style.visibility = 'hidden' ;
     }
   })
   .catch(error => {
@@ -209,7 +209,7 @@ function mostrarQR() {
       text: bolt11
     });
     document.querySelector('.card-text').textContent = bolt11
-    setInterval(quitarQR, 3000); // Llamar a quitarQR cada 3 segundos
+    setInterval(quitarQR, 2000); // Llamar a quitarQR cada 3 segundos
     // Resto del código
   })
   .catch(error => {

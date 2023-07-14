@@ -58,3 +58,10 @@
     border-color: black;
     border-width: 8px;
   }
+
+  #sucess{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: red;
+  }
