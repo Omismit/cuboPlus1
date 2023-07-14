@@ -15,7 +15,7 @@ function loading_balance() {
         success: function (data) {
             if (data['response']) {
                 $("#usd").html(dollarUSLocale.format(data['data']['fiatBalance']));
-                $("#sats").html(data['data']['satsBalance']);
+                $("#sats").html((data['data']['satsBalance']/1000));
             } else {
                 $("#alert1").show();
             }

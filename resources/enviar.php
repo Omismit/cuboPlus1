@@ -13,8 +13,6 @@ if (!isset($_SESSION['iduser'])) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
         <link rel="stylesheet" href="../styles/styles.css">
     </head>
@@ -44,6 +42,9 @@ if (!isset($_SESSION['iduser'])) {
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
+                    <div class="alert alert-danger hidden" role="alert" id="alert1">
+                        Error: user or password incorrect!!
+                    </div>
                     <div class="d-flex align-items-center flex-column" style="margin-top: 72px;">
                         <h3>Send remittance</h3>
                         <div class="text-center mt-5">
@@ -55,23 +56,20 @@ if (!isset($_SESSION['iduser'])) {
 
                         </div>
                         <div class="text-center mt-4">
-                            <form id="saldoForm" action="balance.php" method="POST">
+                            <form id="saldoForm">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-lg" placeholder="Enter an amount" id="cantidadEnviar">
                                 </div> 
                                 <div class="form-group">
                                   <!-- <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly> -->
 
-                                    <select class="js-example-basic-single" name="users" style="width: 300px;">
-                                        <option value="1">Edgar</option>
-                                        <option value="2">Rodrigo</option>
-                                        <option value="3">Oswaldo</option>
+                                    <select class="js-example-basic-single" name="users" id="users" style="width: 300px;">
                                     </select>
 
                                 </div>
                                 <!-- <button class="btn btn-primary" id="searchBtn">Search</button> -->
                                 <br>
-                                <button type="submit" class="btn btn-primary btn-block" id="sendBtn">Send remittance</button>
+                                <button type="button" class="btn btn-primary btn-block" onclick="prepare_send()" id="sendBtn">Send remittance</button>
                             </form>
                         </div>
                     </div>
@@ -86,31 +84,6 @@ if (!isset($_SESSION['iduser'])) {
     </div>
 </div>
 </div>
-<!-- Ventana modal
-<div class="modal fade" id="userModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Detalles de usuario</h5>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="userId">ID:</label>
-              <input type="text" class="form-control" id="userId">
-            </div>
-            <div class="form-group">
-              <label for="userName">Nombre:</label>
-              <input type="text" class="form-control" id="userName">
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="selectBtn">Seleccionar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-     Ventana modal -->
 
 <!-- Modal de confirmación -->
 <div class="modal fade" id="confirmModal">
@@ -144,69 +117,43 @@ if (!isset($_SESSION['iduser'])) {
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="confirmYes">Sí</button>
+                <button type="button" class="btn btn-success" onclick="send()" id="confirmYes">Yes</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
         </div>
     </div>
 </div>
 <!-- Modal de confirmación -->
-
-
-
-<script>
-    /*$(document).ready(function() {
-     $('#searchBtn').click(function(e) {
-     e.preventDefault(); // Evita el comportamiento predeterminado del botón
-     $('#userModal').modal('show');
-     });
-     
-     $('#selectBtn').click(function() {
-     loading_balance();
-     loading_search_user();
-     var userId = $('#userId').val();
-     var userName = $('#userName').val();
-     console.log('ID:', userId);
-     console.log('Nombre:', userName);
-     $('#userModal').modal('hide');
-     
-     // Asignar valor de userName al input text de username
-     $('#usernameInput').val(userName);
-     });
-     });*/
-
-    $(document).ready(function () {
-        loading_balance();
-        loading_search_user();
-        $('#sendBtn').click(function (e) {
-            e.preventDefault();
-            $('#confirmModal').modal('show');
-
-            //variables para imprimir el modal de confirmacion
-            var cantidad = $('#cantidadEnviar').val(); //USD
-            var sats = 15;
-            var fee = 3;
-            var total = sats - fee;
-
-            //mensajes de impresion en modal
-            $('#confirmationMessageUSD').text("¿Are you sure you want to send  $" + cantidad + " Dollars ?");
-            $('#confirmationMessageSATS').text(sats);
-            $('#confirmationMessageFee').text(fee);
-            $('#confirmationMessageTotal').text(total);
-        });
-
-        $('#confirmYes').click(function () {
-            window.location.href = "dashboard.php";
-        });
-        $('.js-example-basic-single').select2();
-    });
-</script>
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="../js/send.js"></script>
+<script>
+                    /*$(document).ready(function() {
+                     $('#searchBtn').click(function(e) {
+                     e.preventDefault(); // Evita el comportamiento predeterminado del botón
+                     $('#userModal').modal('show');
+                     });
+                     
+                     $('#selectBtn').click(function() {
+                     loading_balance();
+                     loading_search_user();
+                     var userId = $('#userId').val();
+                     var userName = $('#userName').val();
+                     console.log('ID:', userId);
+                     console.log('Nombre:', userName);
+                     $('#userModal').modal('hide');
+                     
+                     // Asignar valor de userName al input text de username
+                     $('#usernameInput').val(userName);
+                     });
+                     });*/
+
+                    $(document).ready(function () {
+                        loading_balance();
+                        loading_search_user();
+                    });
+</script>
 </body>
 </html>

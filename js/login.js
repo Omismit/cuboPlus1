@@ -2,15 +2,33 @@
 const passwordInput = document.querySelector('.password-input input');
 const passwordToggle = document.querySelector('.password-toggle');
 
+$(document).ready(function () {
+    $("#user").enterKey(function () {
+        login();
+    });
+    $("#password").enterKey(function () {
+        login();
+    });
+});
+$.fn.enterKey = function (fnc) {
+    return this.each(function () {
+        $(this).keypress(function (ev) {
+            var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+            if (keycode == '13') {
+                fnc.call(this, ev);
+            }
+        });
+    });
+}
 // Función para alternar la visibilidad de la contraseña
 function togglePasswordVisibility() {
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    passwordToggle.innerHTML = '<i class="fas fa-eye"></i>';
-  } else {
-    passwordInput.type = 'password';
-    passwordToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
-  }
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordToggle.innerHTML = '<i class="fas fa-eye"></i>';
+    } else {
+        passwordInput.type = 'password';
+        passwordToggle.innerHTML = '<i class="fas fa-eye-slash"></i>';
+    }
 }
 
 // Mostrar contraseña oculta al cargar la página
@@ -24,27 +42,27 @@ passwordToggle.addEventListener('click', togglePasswordVisibility);
 const loginButton = document.getElementById('btn-acceder');
 
 // Función para redirigir a la página del menú principal
-function redirigir(){
-    location.href="menu.html";
+function redirigir() {
+    location.href = "signup.html";
 }
 
-function login(){
+function login() {
     var user = $("#user").val();
     var pass = $("#password").val();
     $.ajax({
-        method:"POST",
-        url:"resources/login.php",
-        dataType:"json",
-        data:{type:"1",val1:user,val2:pass},
-        success:function(data){
-            if(data['response']){
-                location.href="./resources/dashboard.php";
-            }else{
+        method: "POST",
+        url: "resources/login.php",
+        dataType: "json",
+        data: {type: "1", val1: user, val2: pass},
+        success: function (data) {
+            if (data['response']) {
+                location.href = "./resources/dashboard.php";
+            } else {
                 $("#alert1").show();
             }
         },
-        error:function(){
-            
+        error: function () {
+
         }
     });
 }
