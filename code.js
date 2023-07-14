@@ -6,6 +6,8 @@ var desc = document.getElementById('desc')*/
 var enviar = document.getElementById('enviar')
 var createQR = document.getElementById('createQR')
 var id;
+;
+
 
 async function obtenerDatos(){
 await fetch('https://api.zebedee.io/v0/wallet', {
@@ -177,7 +179,7 @@ function quitarQR() {
   });
 }
 
-function mostrarQR() {
+function mostrarQR(sats) {
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
     method: 'post',
     headers: {
@@ -185,7 +187,7 @@ function mostrarQR() {
       'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
     },
     body: JSON.stringify({
-      "amount": "15000",
+      "amount": '100000',
       "description": "Withdraw QR!",
       "expiresIn": 300,
       "internalId": "1c3b1-f61j2",
@@ -218,6 +220,36 @@ function mostrarQR() {
 }
 
 mostrarQR();
+
+//Obtener datos de Base de datos
+fetch('../bd/satoshis.php', {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+  .then(response => {
+    console.log("Conexión exitosa"); // Mensaje de éxito de conexión
+    return response.json();
+  })
+  .then(data => {
+    console.log("Respuesta del servidor:", data); // Imprimir la respuesta JSON del servidor
+
+    if (data.satsBalance) {
+      var satsBalance = data.satsBalance;
+
+      // Utilizar el valor de satsBalance en tu código JavaScript
+      console.log("satsBalance:", satsBalance);
+
+      // Resto del código...
+    } else {
+      console.error("Error en la respuesta del servidor:", data.error);
+    }
+  })
+  .catch(error => {
+    console.error("Error de conexión:", error);
+  });
+
 
 
 
