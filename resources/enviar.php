@@ -42,6 +42,9 @@ if (!isset($_SESSION['iduser'])) {
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
+                    <div class="alert alert-danger hidden" role="alert" id="alert1">
+                        Error: user or password incorrect!!
+                    </div>
                     <div class="d-flex align-items-center flex-column" style="margin-top: 72px;">
                         <h3>Send remittance</h3>
                         <div class="text-center mt-5">
@@ -53,7 +56,7 @@ if (!isset($_SESSION['iduser'])) {
 
                         </div>
                         <div class="text-center mt-4">
-                            <form id="saldoForm" action="balance.php" method="POST">
+                            <form id="saldoForm">
                                 <div class="form-group">
                                     <input type="number" class="form-control form-control-lg" placeholder="Enter an amount" id="cantidadEnviar">
                                 </div> 
@@ -66,7 +69,7 @@ if (!isset($_SESSION['iduser'])) {
                                 </div>
                                 <!-- <button class="btn btn-primary" id="searchBtn">Search</button> -->
                                 <br>
-                                <button type="submit" class="btn btn-primary btn-block" onclick="prepare_send()" id="sendBtn">Send remittance</button>
+                                <button type="button" class="btn btn-primary btn-block" onclick="prepare_send()" id="sendBtn">Send remittance</button>
                             </form>
                         </div>
                     </div>
@@ -127,46 +130,30 @@ if (!isset($_SESSION['iduser'])) {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <script src="../js/send.js"></script>
 <script>
-    /*$(document).ready(function() {
-     $('#searchBtn').click(function(e) {
-     e.preventDefault(); // Evita el comportamiento predeterminado del botón
-     $('#userModal').modal('show');
-     });
-     
-     $('#selectBtn').click(function() {
-     loading_balance();
-     loading_search_user();
-     var userId = $('#userId').val();
-     var userName = $('#userName').val();
-     console.log('ID:', userId);
-     console.log('Nombre:', userName);
-     $('#userModal').modal('hide');
-     
-     // Asignar valor de userName al input text de username
-     $('#usernameInput').val(userName);
-     });
-     });*/
+                    /*$(document).ready(function() {
+                     $('#searchBtn').click(function(e) {
+                     e.preventDefault(); // Evita el comportamiento predeterminado del botón
+                     $('#userModal').modal('show');
+                     });
+                     
+                     $('#selectBtn').click(function() {
+                     loading_balance();
+                     loading_search_user();
+                     var userId = $('#userId').val();
+                     var userName = $('#userName').val();
+                     console.log('ID:', userId);
+                     console.log('Nombre:', userName);
+                     $('#userModal').modal('hide');
+                     
+                     // Asignar valor de userName al input text de username
+                     $('#usernameInput').val(userName);
+                     });
+                     });*/
 
-    $(document).ready(function () {
-        loading_balance();
-        loading_search_user();
-        $('#sendBtn').click(function (e) {
-            e.preventDefault();
-            $('#confirmModal').modal('show');
-
-            //variables para imprimir el modal de confirmacion
-            var cantidad = $('#cantidadEnviar').val(); //USD
-            var sats = 15;
-            var fee = 3;
-            var total = sats - fee;
-
-            //mensajes de impresion en modal
-            $('#confirmationMessageUSD').text("¿Are you sure you want to send  $" + cantidad + " Dollars ?");
-            $('#confirmationMessageSATS').text(sats);
-            $('#confirmationMessageFee').text(fee);
-            $('#confirmationMessageTotal').text(total);
-        });        
-    });
+                    $(document).ready(function () {
+                        loading_balance();
+                        loading_search_user();
+                    });
 </script>
 </body>
 </html>
