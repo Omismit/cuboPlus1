@@ -61,25 +61,25 @@ if (!isset($_SESSION['iduser'])) {
             <a href="inicio.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/inicio.png" alt="Inicio">
-                <p>Inicio</p>
+                <p>Transaction history</p>
               </div>
             </a>
             <a href="depositar.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/depositar.png" alt="Depositar">
-                <p>Depositar</p>
+                <p>Recharge</p>
               </div>
             </a>
             <a href="enviar.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/enviar.png" alt="Enviar">
-                <p>Enviar</p>
+                <p>Send</p>
               </div>
             </a>
             <a href="recibir.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/recibir.png" alt="Recibir">
-                <p>Recibir</p>
+                <p>Withdraw</p>
               </div>
             </a>
           </div>
