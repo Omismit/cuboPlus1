@@ -80,7 +80,7 @@ function send(){
         data: {type: "3", val1: amount, val2: userR},
         success: function (data) {
             if (data['response']) {
-//                location.href="./dashboard.php";
+                location.href="./dashboard.php";
             } else {
                 $("#alert1").show();
             }
