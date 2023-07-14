@@ -11,6 +11,9 @@ if (!isset($_SESSION['iduser'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Easy Remittance</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="icon" href="https://icons.veryicon.com/png/o/business/blockchain-commerce/lightning-network.png">
   <link rel="stylesheet" href="../styles/styles.css">
@@ -59,11 +62,17 @@ if (!isset($_SESSION['iduser'])) {
                 <div class="form-group">
                   <input type="text" class="form-control form-control-lg" placeholder="Search for user" id="usernameInput" readonly>
                 
+                  <select class="js-example-basic-single" name="users" style="width: 300px;">
+                    <option value="1">Edgar</option>
+                    <option value="2">Rodrigo</option>
+                    <option value="3">Oswaldo</option>
+                  </select>
+
                 </div>
                 <button class="btn btn-primary" id="searchBtn">Search</button>
                 <br>
                 <br>
-                <button type="submit" class="btn btn-primary btn-block">Send remittance</button>
+                <button type="submit" class="btn btn-primary btn-block" id="sendBtn">Send remittance</button>
               </form>
             </div>
           </div>
@@ -166,6 +175,7 @@ if (!isset($_SESSION['iduser'])) {
   
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <script src="../js/send.js"></script>
 </body>
