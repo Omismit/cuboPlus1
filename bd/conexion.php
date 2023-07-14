@@ -1,5 +1,5 @@
 <?php
-$servidor ="192.168.0.102";
+$servidor ="192.168.55.103";
 $base ="easy_db";
 $usuario="user2";
 $contra ="Zm6oFX5Qt6bxqd3";

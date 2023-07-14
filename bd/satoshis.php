@@ -12,7 +12,7 @@ $result = mysqli_query($miconexion, $sql);
 if ($result) {
   $row = mysqli_fetch_assoc($result);
   $satsBalance = $row['satsBalance'];
-  echo json_encode(array('satsBalance' => $satsBalance));
+  echo json_encode(array('satsBalance' => ($satsBalance)));
   exit();
 } else {
   echo json_encode(array('error' => 'Error en la consulta'));

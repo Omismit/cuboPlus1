@@ -1,9 +1,10 @@
-
-function loading_balance() {
-    let dollarUSLocale = Intl.NumberFormat('en-US', {
+var dataSelect;
+let dollarUSLocale = Intl.NumberFormat('en-US', {
     style: "currency",
     currency: "USD"
 });
+let decimal=Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3 });
+function loading_balance() {
     $.ajax({
         method: "POST",
         url: "store.php",
@@ -22,8 +23,7 @@ function loading_balance() {
     });
 }
 
-function loading_search_user(){
-    var option="";
+function loading_search_user() {
     $.ajax({
         method: "POST",
         url: "store.php",
@@ -31,13 +31,53 @@ function loading_search_user(){
         data: {type: "4"},
         success: function (data) {
             if (data['response']) {
-                $("#users").select2("destroy");
-                $("#users").html("");
-                $.each(function(index){
-                   option='<option value="'+index["iduser"]+'">('+index["name"]+' '+index["lastname"]+')</option>';
-                   $("#users").append(option);
+                $('#users').select2({
+                    data: data['data']
                 });
-                $("#users").select2();
+            } else {
+                $("#alert1").show();
+            }
+        },
+        error: function () {
+
+        }
+    });
+}
+
+function prepare_send() {
+    var amount = $("#cantidadEnviar").val();
+    var userR = $("#users").val();
+    $.ajax({
+        method: "POST",
+        url: "store.php",
+        dataType: "json",
+        data: {type: "2", val1: amount, val2: userR},
+        success: function (data) {
+            if (data['response']) {
+                $("#confirmationMessageSATS").html((data['data']['sats']));
+                $("#confirmationMessageFee").html((data['data']['fee']));
+                $("#confirmationMessageTotal").html(data['data']['total']);
+            } else {
+                $("#alert1").show();
+            }
+        },
+        error: function () {
+
+        }
+    });
+}
+
+function send(){
+    var amount = $("#cantidadEnviar").val();
+    var userR = $("#users").val();
+    $.ajax({
+        method: "POST",
+        url: "store.php",
+        dataType: "json",
+        data: {type: "3", val1: amount, val2: userR},
+        success: function (data) {
+            if (data['response']) {
+                location.href="./dashboard.php";
             } else {
                 $("#alert1").show();
             }

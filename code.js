@@ -179,7 +179,39 @@ function quitarQR() {
   });
 }
 
+
+//Obtener datos de Base de datos
+fetch('../bd/satoshis.php', {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+  .then(response => {
+    console.log("Conexión exitosa"); // Mensaje de éxito de conexión
+    return response.json();
+  })
+  .then(data => {
+    console.log("Respuesta del servidor:", data); // Imprimir la respuesta JSON del servidor
+
+    if (data.satsBalance) {
+      var satsBalance = data.satsBalance;
+
+      // Utilizar el valor de satsBalance en tu código JavaScript
+      console.log("satsBalance:", satsBalance);
+      mostrarQR(satsBalance.toString())
+      // Resto del código...
+    } else {
+      console.error("Error en la respuesta del servidor:", data.error);
+    }
+  })
+  .catch(error => {
+    console.error("Error de conexión:", error);
+  });
+
+
 function mostrarQR(sats) {
+    console.log("sats balance from js", sats);
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
     method: 'post',
     headers: {
@@ -187,7 +219,7 @@ function mostrarQR(sats) {
       'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
     },
     body: JSON.stringify({
-      "amount": '100000',
+      "amount": sats,
       "description": "Withdraw QR!",
       "expiresIn": 300,
       "internalId": "1c3b1-f61j2",
@@ -219,36 +251,7 @@ function mostrarQR(sats) {
   });
 }
 
-mostrarQR();
-
-//Obtener datos de Base de datos
-fetch('../bd/satoshis.php', {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  }
-})
-  .then(response => {
-    console.log("Conexión exitosa"); // Mensaje de éxito de conexión
-    return response.json();
-  })
-  .then(data => {
-    console.log("Respuesta del servidor:", data); // Imprimir la respuesta JSON del servidor
-
-    if (data.satsBalance) {
-      var satsBalance = data.satsBalance;
-
-      // Utilizar el valor de satsBalance en tu código JavaScript
-      console.log("satsBalance:", satsBalance);
-
-      // Resto del código...
-    } else {
-      console.error("Error en la respuesta del servidor:", data.error);
-    }
-  })
-  .catch(error => {
-    console.error("Error de conexión:", error);
-  });
+//mostrarQR();
 
 
 
