@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['iduser'])) {
+    header('location: ../index.html');
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,7 +25,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <span class="navbar-text" style="color:white;padding-right:20px;">
-            User
+            <?php echo $_SESSION['user']; ?>
           </span>
         </li>
         <li class="nav-item">
@@ -33,8 +39,6 @@
   </nav>
 
   <div class="container mt-5">
-      
-
       <div class="row">
         <div class="col-md-6 offset-md-3">
           <div class="d-flex align-items-center flex-column" style="margin-top: 72px;">
@@ -74,7 +78,6 @@
       </div>
     </div>
   </div>
-
   <!-- Ventana modal -->
   <div class="modal fade" id="userModal">
         <div class="modal-dialog">
@@ -164,5 +167,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="../js/send.js"></script>
 </body>
 </html>
