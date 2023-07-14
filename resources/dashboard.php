@@ -42,8 +42,8 @@ if (!isset($_SESSION['iduser'])) {
       <div class="col">
         <div class="d-flex align-items-center flex-column">
             <img src="../img/ln.png" id="user-image" alt="Foto de usuario" class="user-photo">
-            <h2 id="user-name">Rodrigo Aguilera</h2>
-            <p id="user">@TheBossUX-UI</p>
+            <h2 id="user-name"><?php echo $_SESSION['name']." ".$_SESSION['lastname']?></h2>
+            <p id="user"><?php echo $_SESSION['user']?></p>
             <div class="input-group input-group-lg d-flex justify-content-center">
                 <span class="input-group-text" id="balance1" style="font-size: 24px;">Sats : </span>
                 <span class="input-group-text" id="sats" style="font-size: 24px;">1,000,000.00</span>
