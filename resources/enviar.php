@@ -154,7 +154,7 @@ if (!isset($_SESSION['iduser'])) {
       });
 
       $('#confirmYes').click(function() {
-        window.location.href = "balance.php";
+        window.location.href = "dashboard.php";
       });
   });
 
