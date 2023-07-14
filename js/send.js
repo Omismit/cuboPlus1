@@ -54,10 +54,13 @@ function prepare_send() {
         data: {type: "2", val1: amount, val2: userR},
         success: function (data) {
             if (data['response']) {
+                $("#alert1").hide();
                 $("#confirmationMessageSATS").html((data['data']['sats']));
                 $("#confirmationMessageFee").html((data['data']['fee']));
                 $("#confirmationMessageTotal").html(data['data']['total']);
+                $('#confirmModal').modal('show');
             } else {
+                $("#alert1").html(data['msg']);
                 $("#alert1").show();
             }
         },
@@ -77,7 +80,7 @@ function send(){
         data: {type: "3", val1: amount, val2: userR},
         success: function (data) {
             if (data['response']) {
-                location.href="./dashboard.php";
+//                location.href="./dashboard.php";
             } else {
                 $("#alert1").show();
             }
