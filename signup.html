@@ -7,7 +7,14 @@
     @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
   </style>
   <script src="bd/bd.js" defer></script>
-  
+  <script>
+    var pass = document.getElementById("pass").value;
+    var pass2 = document.getElementById("pass2").value;
+    var id = document.getElementById("alert1").value;
+    if(pass != pass2){
+      id.style.visibility = "visible"
+    }
+  </script>
 </head>
 <body>
   <div class="container">
@@ -16,6 +23,7 @@
       <p>at lightning speed in your money transfers! .... </p>
       <img src="img/electricity.png" alt="Travel Image">
     </div>
+    <div class="alert alert-danger hidden" role="alert" id="alert1" ></div>
     <div class="right-section">
       <h2>Sign Up</h2>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
