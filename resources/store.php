@@ -82,7 +82,7 @@ switch ($case) {
         }
         $sql3 = "Call sent_assets(?,?,?,0);";
         $query3 = $conexion->prepare($sql3);
-        $query3->execute(array($_SESSION['iduser'],$receiver,$amount));
+        $query3->execute(array($_SESSION['iduser'], $receiver, $amount));
         echo json_encode(array("response" => TRUE));
         break;
     case 4:///get info of other users
@@ -95,6 +95,36 @@ switch ($case) {
             array_push($items, array("id" => $a['iduser'], "text" => $a['email']));
         }
         echo json_encode(array("response" => TRUE, "data" => $items));
+        break;
+    case 5:///get information of tx do it for the user
+        $data = array();
+        $sql = "select idtx,sender,u1.name ns,u1.lastname ls,u1.email es,reciever,u2.name nr,u2.lastname lr,u2.email er,
+                CONCAT('$', FORMAT(fiatAmount, 2)) fiat,format((satsAmount/1000),2) sats,date,ty.name tipo 
+                from transsactions as tx
+                inner join users as u1 on tx.sender=u1.iduser
+                inner join users as u2 on tx.reciever=u2.iduser
+                inner join typeTx as ty using(idtypeTx) 
+                where sender=? or reciever=? order by date desc;";
+        $query = $conexion->prepare($sql);
+        $query->execute(array($_SESSION['iduser'], $_SESSION['iduser']));
+        while ($a = $query->fetch(PDO::FETCH_ASSOC)) {
+            array_push($data, array(
+                "idsender" => $a['sender'],
+                "nameSender" => $a['ns'],
+                "lastnameSender" => $a['ls'],
+                "emailSender" => $a['es'],
+                "idreceiver" => $a['reciever'],
+                "nameReceiver" => $a['nr'],
+                "lastnameReceiver" => $a['lr'],
+                "emailReceiver" => $a['er'],
+                "typeTx" => $a['tipo'],
+                "date" => $a['date'],
+                "fiat" => $a['fiat'],
+                "sats" => $a['sats'],
+                "idTx" => $a['idtx']
+            ));
+        }
+        echo json_encode(array("response"=>TRUE,"data"=>$data));
         break;
     default:
         break;
