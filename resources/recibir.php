@@ -57,7 +57,7 @@ if (!isset($_SESSION['iduser'])) {
       <h1 class="pb-1">
        SUCCESSED
       </h1>
-    </div class="row justify-content-center">
+    <div class="row justify-content-center">
       <button type="button" class="btn btn-dark" id="succReturn">Return</button>
     </div>
   </div>
