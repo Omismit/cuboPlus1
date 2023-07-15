@@ -16,3 +16,27 @@ document.addEventListener("DOMContentLoaded", function() {
     this.value = formattedValue.slice(0, 5);
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cvvInput = document.getElementById("cvv");
+  
+    cvvInput.addEventListener("input", function() {
+      this.value = this.value.replace(/\D/g, ""); // Eliminar caracteres no numéricos
+      this.value = this.value.slice(0, 3); // Limitar a 3 caracteres
+    });
+  });
+  
+  document.addEventListener("DOMContentLoaded", function() {
+    const amountInput = document.getElementById("amount");
+  
+    amountInput.addEventListener("input", function() {
+      this.value = this.value.replace(/[^0-9]/g, ""); // Eliminar caracteres no numéricos
+  
+      // Validar si el valor es negativo y ajustarlo a cero si es el caso
+      const amount = parseInt(this.value);
+      if (amount < 0) {
+        this.value = "0";
+      }
+    });
+  });
+  
