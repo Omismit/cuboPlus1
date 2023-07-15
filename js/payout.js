@@ -1,18 +1,42 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const inputs = document.querySelectorAll("input");
+  const expirationInput = document.getElementById("expiration");
+
+  expirationInput.addEventListener("input", function() {
+    const value = this.value.replace(/\D/g, ""); // Eliminar caracteres no numéricos
+    let formattedValue = "";
+
+    if (value.length > 2) {
+      const month = value.slice(0, 2);
+      const year = value.slice(2, 4);
+      formattedValue = `${month}/${year}`;
+    } else {
+      formattedValue = value;
+    }
+
+    this.value = formattedValue.slice(0, 5);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const cvvInput = document.getElementById("cvv");
   
-    inputs.forEach(function(input) {
-      const label = input.nextElementSibling;
+    cvvInput.addEventListener("input", function() {
+      this.value = this.value.replace(/\D/g, ""); // Eliminar caracteres no numéricos
+      this.value = this.value.slice(0, 3); // Limitar a 3 caracteres
+    });
+  });
   
-      input.addEventListener("focus", function() {
-        label.classList.add("active");
-      });
+  document.addEventListener("DOMContentLoaded", function() {
+    const amountInput = document.getElementById("amount");
   
-      input.addEventListener("blur", function() {
-        if (this.value === "") {
-          label.classList.remove("active");
-        }
-      });
+    amountInput.addEventListener("input", function() {
+      this.value = this.value.replace(/[^0-9]/g, ""); // Eliminar caracteres no numéricos
+  
+      // Validar si el valor es negativo y ajustarlo a cero si es el caso
+      const amount = parseInt(this.value);
+      if (amount < 0) {
+        this.value = "0";
+      }
     });
   });
   
