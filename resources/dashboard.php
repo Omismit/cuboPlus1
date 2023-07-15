@@ -58,7 +58,7 @@ if (!isset($_SESSION['iduser'])) {
         <br>
         <div class="center">
           <div class="d-flex justify-content-between">
-            <a href="inicio.php" class="button-link">
+            <a href="tx.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/inicio.png" alt="Inicio">
                 <p>Transactions</p>
