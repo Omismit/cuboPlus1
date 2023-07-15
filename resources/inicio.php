@@ -67,6 +67,9 @@ if (!isset($_SESSION['iduser'])) {
           </tr>
         </tbody>
         </table>      
+  
+
+                
        </div>
       </div>
     </div>
@@ -112,6 +115,8 @@ if (!isset($_SESSION['iduser'])) {
         }
 
     </script>
+
+  
   
 
 </body>

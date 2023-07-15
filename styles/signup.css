@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  height: 85vh;
   max-width: 800px; /* Utilizamos max-width en lugar de width */
   border-radius: 10px;
   padding: 30px;
