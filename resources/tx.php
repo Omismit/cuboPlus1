@@ -36,12 +36,11 @@ if (!isset($_SESSION['iduser'])) {
         </nav>
 
 
-
         <div class="container mt-5" >
             <div class="row">
                 <div class="col-12">
                     <div>
-                        <table class="table table-hover table-striped" id="tx">
+                        <table class="table table-hover table-striped" style="margin-top:50px;" id="tx">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Type</th>
