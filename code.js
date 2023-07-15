@@ -272,6 +272,8 @@ function mostrarQR(sats) {
       var contenedor =  document.querySelector("#contenedor") ;
       contenedor.style.display = "none";
       contenedor.style.color = "red";
+      var con_error=document.getElementById("con-error")
+      con_error.style.display = "block"
       var errorReturn = document.getElementById("errorReturn")
       errorReturn.addEventListener("click", ()=>{
         location.href = "dashboard.php";
