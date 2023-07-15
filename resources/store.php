@@ -49,10 +49,10 @@ switch ($case) {
             break;
         }
         $milisats = ($amount * 1000);
-        $fee = ((($milisats * 0.03)));
-        $total = ($milisats - $fee) / 1000;
+        $fee = 1;
+        $total = ($milisats - 1000) / 1000;
         echo json_encode(array("response" => TRUE, "data" => array("amount" => $amount,
-                "sats" => ($milisats / 1000), "fee" => ($fee / 1000), "total" => $total)));
+                "sats" => ($milisats / 1000), "fee" => 1, "total" => $total)));
         break;
     case 3://sending funds
         $reponse = FALSE;
@@ -125,6 +125,13 @@ switch ($case) {
             ));
         }
         echo json_encode(array("response"=>TRUE,"data"=>$data));
+        break;
+    case 6:////add more funds to the acount
+        $amount=$_POST['amount'];
+        $sql="Call insert_assets(?,?,@valido);";
+        $query=$conexion->prepare($sql);
+        $query->execute(array($_SESSION['iduser'],$amount));
+        echo json_encode(array("response"=>TRUE));
         break;
     default:
         break;

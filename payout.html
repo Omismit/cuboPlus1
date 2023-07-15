@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Easy Remittance</title>
-  <link rel="stylesheet" type="text/css" href="styles/payout.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-  </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-  <div id="header">
-    <img src="img/ln.png" alt="Logo">
-    <h1>Easy Remittance</h1>
-  </div>
-  
-  <div id="body">
-    <h2 id="title">Add a payment method</h2>
-    <div class="image-section">
-        <img src="img/creditcards.png" alt="Payment Image" class="payment-image">
-      </div>
-    <div class="input-section">
-      <h3>Personal information</h3>
-      <div class="input-group animated-input">
-        <input type="text" id="name" required>
-        <label for="name">Name and surname</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="email" id="email" required>
-        <label for="email">Email address</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="text" id="country" required>
-        <label for="country">Country</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="text" id="state" required>
-        <label for="state">State/Department</label>
-      </div>
-      <div class="input-group animated-input"> 
-        <input type="text" id="city" required>
-        <label for="city">City</label>
-      </div>
-    </div>
-    
-    <div class="input-section">
-      <h3>Payment information</h3>
-      <div class="input-group animated-input">
-        <input type="number" id="card-number" required>
-        <label for="card-number">Card number</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="number" id="cvv" required>
-        <label for="cvv">CVV</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="text" id="expiration" required>
-        <label for="expiration">Expiration date</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="number" id="amount" required>
-        <label for="amount">Amount to recharge</label>
-      </div>
-    </div>
-    <button id="btn-recargar" type="button" class="btm">Recharge</button>
-  </div>
-  <script src="js/payout.js"></script>
-</body>
+    <head>
+        <title>Easy Remittance</title>
+        <link rel="stylesheet" type="text/css" href="styles/payout.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div id="header">
+            <img src="img/ln.png" alt="Logo">
+            <h1>Easy Remittance</h1>
+        </div>
+
+        <div id="body">
+            <h2 id="title">Add a payment method</h2>
+            <div class="image-section">
+                <img src="img/creditcards.png" alt="Payment Image" class="payment-image">
+            </div>
+            <div class="input-section">
+                <h3>Personal information</h3>
+                <div class="input-group animated-input">
+                    <input type="text" id="name" required>
+                    <label for="name">Name and surname</label>
+                </div>
+                <div class="input-group animated-input">
+                    <input type="email" id="email" required>
+                    <label for="email">Email address</label>
+                </div>
+                <div class="input-group animated-input">
+                    <input type="text" id="country" required>
+                    <label for="country">Country</label>
+                </div>
+                <div class="input-group animated-input">
+                    <input type="text" id="state" required>
+                    <label for="state">State/Department</label>
+                </div>
+                <div class="input-group animated-input"> 
+                    <input type="text" id="city" required>
+                    <label for="city">City</label>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <h3>Payment information</h3>
+                <div class="input-group animated-input">
+                    <input type="number" id="card-number" required>
+                    <label for="card-number">Card number</label>
+                </div>
+                <div class="input-group animated-input">
+                    <input type="number" id="cvv" required>
+                    <label for="cvv">CVV</label>
+                </div>
+                <div class="input-group animated-input">
+                    <input type="text" id="expiration" required>
+                    <label for="expiration">Expiration date</label>
+                </div>
+                <div class="input-group animated-input">
+                    <input type="number" id="amount" required>
+                    <label for="amount">Amount to recharge</label>
+                </div>
+            </div>
+            <button id="btn-recargar" type="button" onclick="addAssents();" class="btm">Recharge</button>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <script src="js/payout.js"></script>
+    </body>
 </html>
 
 
