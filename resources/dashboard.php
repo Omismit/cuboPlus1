@@ -64,7 +64,7 @@ if (!isset($_SESSION['iduser'])) {
                 <p>Transactions</p>
               </div>
             </a>
-            <a href="../payout.html" class="button-link">
+            <a href="payout.php" class="button-link">
               <div class="circle-button">
                 <img src="../img/depositar.png" alt="Depositar">
                 <p>Recharge</p>
