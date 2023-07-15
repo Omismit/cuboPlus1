@@ -281,8 +281,8 @@ function mostrarQR(sats) {
       console.log("Prueba de fuego")
       var contenedor =  document.querySelector("#contenedor") ;
       var con_error=document.querySelector("#con-error");
-      contenedor.style.display = "none";
-      contenedor.style.color = "red";
+      //contenedor.style.display = "none";
+     // contenedor.style.color = "red";
       con_error.style.display = "block";
       con_error.style.visibility = "visible";
       var errorReturn = document.getElementById("errorReturn")
