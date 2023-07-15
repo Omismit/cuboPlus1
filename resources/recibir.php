@@ -53,15 +53,15 @@ if (!isset($_SESSION['iduser'])) {
 
 <div class="container mt-5" id="con-success" >
   <div class="col-12" id="succMsj">
-    <div class="row justify-content-center">
-      <h1 class="pb-1">
+    </div class="row justify-content-center">
+      <h1>
        SUCCESSED
       </h1>
     <div class="row justify-content-center">
       <button type="button" class="btn btn-dark" id="succReturn">Return</button>
     </div>
   </div>
-</di>
+</div>
 
 <div class="container mt-5" id="contenedor" >
     <div class="row">
