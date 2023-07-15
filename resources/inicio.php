@@ -66,7 +66,9 @@ if (!isset($_SESSION['iduser'])) {
             <td>@mdo</td>
           </tr>
         </tbody>
-        </table>      
+        </table>   
+        
+        <div id="algo"></div>
   
 
                 
@@ -82,6 +84,8 @@ if (!isset($_SESSION['iduser'])) {
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script>
         $(document).ready(function() {
             getTx();
@@ -95,7 +99,11 @@ if (!isset($_SESSION['iduser'])) {
               data: {type: "5"},
               success: function (data) {
                   if (data['response']) {
-                      
+
+                     $.each(data["dato"],function(index,value){
+                        $("#algo").append(value.nameSender);
+                     }) 
+
                   } else {
                       $("#alert1").show();
                   }
@@ -107,9 +115,7 @@ if (!isset($_SESSION['iduser'])) {
 
     </script>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
   
 
 </body>
