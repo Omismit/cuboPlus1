@@ -8,7 +8,7 @@ Members of the group "The Lightning Walkers":
 <br>
 • Manuel Geovanny Garcia Guillen
 <br>
-• Juan Osvaldo Mismit Barrientos
+• Juan Oswaldo Mismit Barrientos
 
 The reason for creating this project is to demonstrate our skills in implementing the Lightning Network and utilizing various technologies to establish a remittance service that is easy to understand and offers a competitive fee structure, allowing us to enter the market of money transfer services to different parts of the world.
 
