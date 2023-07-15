@@ -1,11 +1,14 @@
 
 
+
 /*
 var pago = document.getElementById('sats')
 var desc = document.getElementById('desc')*/
 var enviar = document.getElementById('enviar')
 var createQR = document.getElementById('createQR')
 var id;
+;
+
 
 async function obtenerDatos(){
 await fetch('https://api.zebedee.io/v0/wallet', {
@@ -170,6 +173,15 @@ function quitarQR() {
     if (data.data.status == "completed") {
       var qr = document.getElementById("qr");
       qr.style.visibility = 'hidden' ;
+      fetch("../bd/withdraw.php",{
+        headers:{
+          "Content-type":"application/json"
+        }
+      }).then(response =>{
+          console.log("Conexion exitosa")
+          return response.json();
+      })
+      
     }
   })
   .catch(error => {
@@ -177,7 +189,44 @@ function quitarQR() {
   });
 }
 
-function mostrarQR() {
+
+//Obtener datos de Base de datos
+fetch('../bd/satoshis.php', {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  }
+}).then(response => {
+    if(response.ok ){
+    console.log("Conexión exitosa"); // Mensaje de éxito de conexión
+    return response.json();
+    }else{
+      console.log("Error en la conexion el proceso")
+    }
+  }).catch(error =>{
+    console.error('Error en la solicitud:', error);
+  })
+  .then(data => {
+    console.log("Respuesta del servidor:", data); // Imprimir la respuesta JSON del servidor
+
+    if (data.satsBalance) {
+      var satsBalance = data.satsBalance;
+
+      // Utilizar el valor de satsBalance en tu código JavaScript
+      console.log("satsBalance:", satsBalance);
+      mostrarQR(satsBalance.toString())
+      // Resto del código...
+    } else {
+      console.error("Error en la respuesta del servidor:", data.error);
+    }
+  })
+  .catch(error => {
+    console.error("Error de conexión:", error);
+  });
+
+
+function mostrarQR(sats) {
+    console.log("sats balance from js", sats);
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
     method: 'post',
     headers: {
@@ -185,7 +234,7 @@ function mostrarQR() {
       'apikey': 'h0YsMAWwAZ1qP588e7YAOQDehWta5KtY'
     },
     body: JSON.stringify({
-      "amount": "15000",
+      "amount": sats,
       "description": "Withdraw QR!",
       "expiresIn": 300,
       "internalId": "1c3b1-f61j2",
@@ -217,7 +266,8 @@ function mostrarQR() {
   });
 }
 
-mostrarQR();
+//mostrarQR();
+
 
 
 
