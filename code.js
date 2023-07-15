@@ -152,6 +152,7 @@ setInterval(quitarQR, 3000)
 mostrarQR()*/
 
 //GET
+
 function quitarQR() {
   fetch(`https://api.zebedee.io/v0/withdrawal-requests/${id}`, {
     method: 'get',
@@ -171,8 +172,8 @@ function quitarQR() {
     console.log(data); 
 
     if (data.data.status == "completed") {
-      var qr = document.getElementById("qr");
-      qr.style.visibility = 'hidden' ;
+      var contenedor =  document.querySelector("#contenedor") ;
+      contenedor.style.display = "none";
       fetch("../bd/withdraw.php",{
         headers:{
           "Content-type":"application/json"
@@ -227,6 +228,8 @@ fetch('../bd/satoshis.php', {
 
 function mostrarQR(sats) {
     console.log("sats balance from js", sats);
+
+    if (sats > 0){
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
     method: 'post',
     headers: {
@@ -264,6 +267,16 @@ function mostrarQR(sats) {
   .catch(error => {
     console.error(error);
   });
+    }
+    else{
+      var contenedor =  document.querySelector("#contenedor") ;
+      contenedor.style.display = "none";
+      contenedor.style.color = "red";
+      var errorReturn = document.getElementById("errorReturn")
+      errorReturn.addEventListener("click", ()=>{
+        location.href = "dashboard.php";
+      })
+    }
 }
 
 //mostrarQR();

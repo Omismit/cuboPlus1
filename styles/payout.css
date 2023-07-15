@@ -1,96 +1,128 @@
+/* Estilos personalizados para el formulario de pago */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-}
-
-#header {
+  }
+  
+  #header {
     background-color: #0788ff;
     padding: 20px;
     display: flex;
     align-items: center;
-}
-
-#header img {
-    height: 50px;
+  }
+  
+  #header img {
+    height: 30px;
     vertical-align: middle;
     margin-right: 10px;
-}
-
-#header h1 {
+  }
+  
+  #header h1 {
     margin: 0;
-    color: #ffffff;
+    color: #ffff;
     font-family: 'Courgette', cursive;
     font-size: 30px;
-}
-
-#body {
+  }
+  
+  #body {
     padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
-
-#title {
+  }
+  
+  #title {
     font-size: 24px;
     margin-bottom: 10px;
     text-align: center;
-}
-
-.input-section {
+  }
+  
+  .card-number{
+      size: 50px;
+  }
+  
+  .input-section {
     margin-bottom: 40px;
     text-align: center;
-}
-
-.input-section h3 {
-    margin-bottom: 10px;
-}
-
-.input-group {
+  }
+  
+  .input-section h3 {
+    margin-bottom: 30px;
+  }
+  
+  .input-group {
     margin-bottom: 20px;
     position: relative;
-}
-
-label {
-    font-weight: bold;
+  }
+  
+  label {
+    font-weight: sans-serif;
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
     pointer-events: none;
     transition: 0.2s ease all;
-}
-
-.input-group input {
+  }
+  
+  .input-group input {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 18px;
     width: 400px;
-}
-
-.animated-input input:focus + label,
-.animated-input input:valid + label {
+  }
+  
+  .animated-input input:focus + label,
+  .animated-input input:valid + label {
     top: -10px;
     font-size: 14px;
-}
-
-.animated-input input:focus {
+  }
+  
+  .animated-input input:focus {
     border-color: #555;
-}
-
-#body > .input-group {
+  }
+  
+  #body > .input-group {
     margin-top: 20px;
-}
-
-.input-group .input-placeholder {
+  }
+  
+  .input-group .input-placeholder {
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
     pointer-events: none;
     transition: 0.2s ease all;
-    font-size: 14px
-}
+    font-size: 14px;
+  }
+  
+  .image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .payment-image {
+    max-width: 200px;
+    width: 100%;
+  }
+  
+  .btm {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #088e06;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
