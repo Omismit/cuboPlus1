@@ -37,7 +37,7 @@ if (!isset($_SESSION['iduser'])) {
     </div>
   </nav>
 
-  <div class="container mt-5 d-flex justify-content-center align-items-center" id="con-error">
+  <div class="container mt-5" id="con-error">
   <div class="col-12" id="errorMsj">
     <div class="row justify-content-center">
       <h1 id="msj">
@@ -49,6 +49,19 @@ if (!isset($_SESSION['iduser'])) {
     </div>
   </div>
 </div>
+
+
+<div class="container mt-5" id="con-success" >
+  <div class="col-12" id="succMsj">
+    <div class="row justify-content-center">
+      <h1>
+       SUCCESSED
+      </h1>
+    </div class="row justify-content-center ">
+      <button type="button" class="btn btn-dark" id="succReturn">Return</button>
+    </div>
+  </div>
+</di>
 
 <div class="container mt-5" id="contenedor" >
     <div class="row">

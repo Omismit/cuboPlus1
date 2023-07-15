@@ -182,7 +182,13 @@ function quitarQR() {
           console.log("Conexion exitosa")
           return response.json();
       })
-      
+      var con_succ = document.getElementById("con-success")
+      con_succ.style.display = "block"
+      con_succ.style.visibility = "visible"
+      var succReturn = document.getElementById("succReturn")
+      succReturn.addEventListener("click",()=>{
+        location.href = "dashboard.php";
+      })
     }
   })
   .catch(error => {
@@ -269,11 +275,13 @@ function mostrarQR(sats) {
   });
     }
     else{
+      console.log("Prueba de fuego")
       var contenedor =  document.querySelector("#contenedor") ;
+      var con_error=document.querySelector("#con-error");
       contenedor.style.display = "none";
       contenedor.style.color = "red";
-      var con_error=document.getElementById("con-error")
-      con_error.style.display = "block"
+      con_error.style.display = "block";
+      con_error.style.visibility = "visible";
       var errorReturn = document.getElementById("errorReturn")
       errorReturn.addEventListener("click", ()=>{
         location.href = "dashboard.php";

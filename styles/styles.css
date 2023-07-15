@@ -70,12 +70,16 @@
      display: none;
  }
 
- #erroMsj{
-  display: flex;
-  justify-content: center;
-  align-items: center;
- }
-
  #con-error{
   display: none;
+  visibility: hidden;
+ }
+
+ #con-success{
+  display: none;
+  visibility: hidden;
+ }
+
+ #succMsj{
+  color: green;
  }
