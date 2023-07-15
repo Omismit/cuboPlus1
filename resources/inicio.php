@@ -43,7 +43,7 @@ if (!isset($_SESSION['iduser'])) {
             
 
 
-        <table class="table table-hover">
+            <table class="table table-hover" id="tx">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -67,9 +67,6 @@ if (!isset($_SESSION['iduser'])) {
           </tr>
         </tbody>
         </table>      
-  
-
-                
        </div>
       </div>
     </div>
@@ -82,12 +79,15 @@ if (!isset($_SESSION['iduser'])) {
   </div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script>
         $(document).ready(function() {
             getTx();
         });
 
         function getTx(){
+            var tr="";
           $.ajax({
               method: "POST",
               url: "store.php",
@@ -95,7 +95,13 @@ if (!isset($_SESSION['iduser'])) {
               data: {type: "5"},
               success: function (data) {
                   if (data['response']) {
-                      
+                      $.each(data["data"],function(index,value){
+                          tr+='<tr><th scope="row">'+value["nameSender"]+'</th><td>'+value["lastnameSender"]+'</td>\n\
+                              <td>'+value["typeTx"]+'</td><td>'+value["nameReceiver"]+'</td><td>'+value["lastnameReceiver"]+'</td>\n\
+                              <td>'+value["fiat"]+'</td><td>'+value["sats"]+'</td></tr>';
+                                  
+                      });
+                      $("#tx > tbody").html(tr);
                   } else {
                       $("#alert1").show();
                   }
@@ -106,10 +112,6 @@ if (!isset($_SESSION['iduser'])) {
         }
 
     </script>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   
 
 </body>
