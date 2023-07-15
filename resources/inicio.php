@@ -43,7 +43,30 @@ if (!isset($_SESSION['iduser'])) {
             
 
 
-                <img src="../img/fix.jpg" class="card-img-top" alt="qr-code" style="width: 256px;height: 256px;margin-left:16px;">
+        <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+        </table>      
   
 
                 
@@ -58,8 +81,36 @@ if (!isset($_SESSION['iduser'])) {
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+        $(document).ready(function() {
+            getTx();
+        });
+
+        function getTx(){
+          $.ajax({
+              method: "POST",
+              url: "store.php",
+              dataType: "json",
+              data: {type: "5"},
+              success: function (data) {
+                  if (data['response']) {
+                      
+                  } else {
+                      $("#alert1").show();
+                  }
+              },
+              error: function () {
+              }
+          });
+        }
+
+    </script>
+
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  
+
 </body>
 </html>
