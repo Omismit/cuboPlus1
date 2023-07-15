@@ -63,6 +63,7 @@
   color: red;
   text-align: center;
   padding-bottom: 0.8rem;
+ 
 }
   
  .hidden {
@@ -73,4 +74,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ }
+
+ #con-error{
+  display: none;
  }
