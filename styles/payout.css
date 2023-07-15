@@ -4,6 +4,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    
   }
   
   #header {
@@ -118,6 +119,19 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     background-color: #088e06;
+    border: none;
+    color: #ffffff;
+    font-size: 14px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .btn {
+    width: 30%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #b00c0c;
     border: none;
     color: #ffffff;
     font-size: 14px;
