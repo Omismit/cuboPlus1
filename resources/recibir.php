@@ -37,9 +37,22 @@ if (!isset($_SESSION['iduser'])) {
     </div>
   </nav>
 
- 
+ <div class="container mt-5 ">
+      <div class="col-12 justify-content-center" id="errorMsj">
+      <div class="row text-center">
+             <h1 id="msj">
+          
+          ERROR: insufficient sats
+                    </h1>
+               
+        </div>
+        <div class="row">
+    <button type="button" class="btn btn-dark" id="errorReturn">Return</button>
+      </div>
+      </div>
+ </div>
 
-<div class="container mt-5" >
+<div class="container mt-5" id="contenedor" >
     <div class="row">
       <div class="col">
         <div class="d-flex align-items-center flex-column" style="margin-top:72px;margin-right:5px;">

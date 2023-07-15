@@ -59,13 +59,18 @@
     border-width: 8px;
   }
 
- /* .suc{
-    text-align: center;
-    color: azure;
-    font-size: 36px;
-    visibility: hidden;
-  }*/
+#msj{
+  color: red;
+  text-align: center;
+  padding-bottom: 0.8rem;
+}
   
  .hidden {
      display: none;
+ }
+
+ #erroMsj{
+  display: flex;
+  justify-content: center;
+  align-items: center;
  }
