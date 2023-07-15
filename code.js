@@ -236,6 +236,9 @@ function mostrarQR(sats) {
     console.log("sats balance from js", sats);
 
     if (sats > 0){
+      var contenedor =  document.querySelector("#contenedor") ;
+      contenedor.style.display = "block";
+      contenedor.style.visibility ="visible";
   fetch('https://api.zebedee.io/v0/withdrawal-requests', {
     method: 'post',
     headers: {
