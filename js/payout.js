@@ -44,12 +44,12 @@ function addAssents() {
     var val1 = $("#amount").val();
     $.ajax({
         method: "POST",
-        url: "./resources/store.php",
+        url: "./store.php",
         dataType: "json",
         data: {type: "6",amount:val1},
         success: function (data) {
             if (data['response']) {
-                location.href="./resources/dashboard.php";
+                location.href="./dashboard.php";
             } else {
                 $("#alert1").show();
             }

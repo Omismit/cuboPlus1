@@ -36,61 +36,81 @@ if (!isset($_SESSION['iduser'])) {
     </div>
   </nav>
   
-  <div id="body">
-    <h2 id="title">Add a payment method</h2>
-    <div class="image-section">
-        <img src="../img/creditcards.png" alt="Payment Image" class="payment-image">
-      </div>
-    <div class="input-section">
-      <h3>Personal information</h3>
-      <div class="input-group animated-input">
-        <input type="text" id="name" required>
-        <label for="name">Name and surname</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="email" id="email" required>
-        <label for="email">Email address</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="text" id="country" required>
-        <label for="country">Country</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="text" id="state" required>
-        <label for="state">State/Department</label>
-      </div>
-      <div class="input-group animated-input"> 
-        <input type="text" id="city" required>
-        <label for="city">City</label>
-      </div>
-    </div>
+
+  <div class="container mt-5" >
+    <div class="row">
+      <div class="col">
+        <div class="d-flex align-items-center flex-column" style="margin-top:72px;">
+            
+
+
+        <!-- start code -->
+        <div id="body" style="margin-top: 530px;">
+        <h2 id="title">Add a payment method</h2>
+          <div class="image-section">
+            <img src="../img/creditcards.png" alt="Payment Image" class="payment-image">
+          </div>
+          <div class="input-section">
+            <h3>Personal information</h3>
+            <div class="input-group animated-input">
+              <input type="text" id="name" required>
+              <label for="name">Name and surname</label>
+            </div>
+            <div class="input-group animated-input">
+              <input type="email" id="email" required>
+              <label for="email">Email address</label>
+            </div>
+            <div class="input-group animated-input">
+              <input type="text" id="country" required>
+              <label for="country">Country</label>
+            </div>
+            <div class="input-group animated-input">
+              <input type="text" id="state" required>
+              <label for="state">State/Department</label>
+            </div>
+            <div class="input-group animated-input"> 
+              <input type="text" id="city" required>
+              <label for="city">City</label>
+            </div>
+          </div>
     
-    <div class="input-section">
-      <h3>Payment information</h3>
-      <div class="input-group animated-input">
-        <input type="number" id="card-number" required>
-        <label for="card-number">Card number</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="number" id="cvv" required>
-        <label for="cvv">CVV</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="text" id="expiration" required>
-        <label for="expiration">Expiration date</label>
-      </div>
-      <div class="input-group animated-input">
-        <input type="number" id="amount" required>
-        <label for="amount">Amount to recharge</label>
+          <div class="input-section">
+            <h3>Payment information</h3>
+            <div class="input-group animated-input">
+              <input type="number" id="card-number" required>
+              <label for="card-number">Card number</label>
+            </div>
+            <div class="input-group animated-input">
+              <input type="number" id="cvv" required>
+              <label for="cvv">CVV</label>
+            </div>
+            <div class="input-group animated-input">
+              <input type="text" id="expiration" required>
+              <label for="expiration">Expiration date</label>
+            </div>
+            <div class="input-group animated-input">
+              <input type="number" id="amount" required>
+              <label for="amount">Amount to recharge</label>
+            </div>
+          </div>
+          <button id="btn-recargar" type="button" onclick="addAssents();" class="btm">Recharge</button>
+          <button id="btn-recargar" type="button" onclick="location.href = 'dashboard.php';" class="btm" style="background-color:red">Decline</button>
+        </div>
+
+
+      <!-- end code -->
+                
+       </div>
       </div>
     </div>
-            <button id="btn-recargar" type="button" onclick="addAssents();" class="btm">Recharge</button>
-	    <button id="btn-recargar " type="button" class="btm" style="background-color:red">Decline</button>
-        </div>
+</div>
+
+
+  
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-        <script src="js/payout.js"></script>
+        <script src="../js/payout.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     </body>
 </html>

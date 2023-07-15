@@ -1,4 +1,5 @@
   body{
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,6 +44,7 @@
 
   .custom-btn {
     background-color: #4cc9c5; /* Cambia el color aquí   9E4C00  */
+    width: 120px;
   }
 
   .card-text{
